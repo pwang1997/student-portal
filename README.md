@@ -1,6 +1,8 @@
 # Student Portal
 
-[Prototype](figma.com/file/doQuDs79b8DJ7furDcnods/Sign-in%2FAdmin?node-id=0%3A1) and [Prototype](https://www.figma.com/file/v6puwR5EXUnNSkMtRISkfT/Student-Portal-UI?node-id=0%3A1)
+Prototype: 
++ [Sign-In Prototype](https://www.figma.com/file/doQuDs79b8DJ7furDcnods/Sign-in%2FAdmin?node-id=0%3A1)
++ [Student Portal Prototype](https://www.figma.com/file/v6puwR5EXUnNSkMtRISkfT/Student-Portal-UI?node-id=0%3A1)
 
 
 [Business Requirement Document](https://onedrive.live.com/view.aspx?resid=908417BFD25F798A!13084&ithint=file%2cdocx&authkey=!APkQLOuhie3T2mc)
