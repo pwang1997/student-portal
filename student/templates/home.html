@@ -1,9 +1,274 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/f56aec2a63.js" crossorigin="anonymous"></script>
+</head>
+
 <body>
+    <div class="v8_60">
 
-<h1>Enrollment</h1>
-<p>This is the student Homepage.</p>
+        <span class="v8_69">
+            Manage your courses
+        </span>
+        <span class="v8_70">
+            Enrollment
+        </span>
+        <div class="v8_74">
+            <div class="v8_75">
 
+            </div>
+            <div class="v8_76">
+
+            </div>
+            <span class="v8_77">
+                Home
+            </span>
+            <span class="v8_78">
+                Drop
+            </span>
+            <span class="v8_82">
+                My Class Schedule
+            </span>
+            <span class="v8_79">
+                Search
+            </span>
+            <span class="v8_80">
+                Add
+            </span>
+        </div>
+        <div class="user">
+            <div class="v11_86">
+
+            </div>
+            <span class="Welcome">
+                Welcome, studenet Xiong Gu
+                <i class="fa-solid fa-user"></i>
+            </span>
+        </div>
+        <div class="logo">
+            <img src="{% static '/images/logo.jpeg' %}" alt=" Logo here">
+        </div>
+    </div>
 </body>
 </html>
+
+
+<br/><br/>
+
+<style>* {
+    box-sizing: border-box;
+  }
+  body {
+    font-size: 14px;
+  }
+  .v8_60 {
+    width: 100%;
+    height: 783px;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+
+  /* use a pseudo-element to isolate the bg image from other elements   */
+  .v8_60::before {
+    content: "";
+    background-color: #EEEEEE;
+    background-image: url("{% static '/images/home_bg.png' %}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+  }
+
+  .v8_66 {
+    width: 32px;
+    height: 68px;
+    background: rgba(0,0,0,0.30000001192092896);
+    opacity: 1;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+  }
+
+  .v8_68 {
+    width: 32px;
+    height: 68px;
+    background: rgba(0,0,0,0.30000001192092896);
+    opacity: 1;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+  }
+  .v8_69 {
+    width: 584px;
+    color: rgba(80,72,72,1);
+    position: absolute;
+    top: 499px;
+    left: 450px;
+    font-family: Roboto;
+    font-weight: Medium;
+    font-size: 50px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v8_70 {
+    width: 638px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 377px;
+    left: 450px;
+    font-family: Roboto;
+    font-weight: Bold;
+    font-size: 100px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v8_74 {
+    width: 853px;
+    height: 78px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 167px;
+    right: 450px;
+    overflow: hidden;
+  }
+  .v8_75 {
+    width: 853px;
+    height: 78px;
+    background: rgba(215,204,163,1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v8_76 {
+    width: 153px;
+    height: 78px;
+    background: rgba(123,117,68,1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .v8_77 {
+    width: 88px;
+    color: rgba(255,255,255,1);
+    position: absolute;
+    top: 24px;
+    left: 38px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 30px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v8_78 {
+    width: 177px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 26px;
+    left: 457px;
+    font-family: Inter;
+    font-weight: Medium;
+    font-size: 30px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v8_82 {
+    width: 279px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 26px;
+    left: 575px;
+    font-family: Inter;
+    font-weight: Medium;
+    font-size: 30px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v8_79 {
+    width: 143px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 24px;
+    left: 177px;
+    font-family: Inter;
+    font-weight: Medium;
+    font-size: 30px;
+    opacity: 1;
+    text-align: left;
+  }
+  .v8_80 {
+    width: 179px;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 26px;
+    left: 346px;
+    font-family: Inter;
+    font-weight: Medium;
+    font-size: 30px;
+    opacity: 1;
+    text-align: left;
+  }
+  .user {
+    width: 100%;
+    height: 67px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 1px;
+    overflow: hidden;
+  }
+  .v11_86 {
+    width: 100%;
+    height: 67px;
+    background: rgba(187,177,152,1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+  }
+  .Welcome {
+    width: 495px;
+    color: rgba(0,0,0,0.6000000238418579);
+    position: absolute;
+    top: 13px;
+    right: 550px;
+    font-size: 30px;
+    opacity: 1;
+    text-align: right;
+  }
+
+  .logo {
+    width: 247px;
+    height: 214px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 113px;
+    left: 450px;
+    overflow: hidden;
+  }
+  </style>
