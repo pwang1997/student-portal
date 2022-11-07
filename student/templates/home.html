@@ -9,39 +9,39 @@
 </head>
 
 <body>
-    <div class="v8_60">
+    <div class="header">
 
-        <span class="v8_69">
+        <span class="subtitle">
             Manage your courses
         </span>
-        <span class="v8_70">
+        <span class="title">
             Enrollment
         </span>
-        <div class="v8_74">
-            <div class="v8_75">
+        <div class="menu">
+            <div class="menubar">
 
             </div>
-            <div class="v8_76">
+            <div class="homebar">
 
             </div>
-            <span class="v8_77">
+            <span class="home">
                 Home
             </span>
-            <span class="v8_78">
+            <span class="drop">
                 Drop
             </span>
-            <span class="v8_82">
+            <span class="schdule">
                 My Class Schedule
             </span>
-            <span class="v8_79">
+            <span class="search">
                 Search
             </span>
-            <span class="v8_80">
+            <span class="add">
                 Add
             </span>
         </div>
         <div class="user">
-            <div class="v11_86">
+            <div class="userbar">
 
             </div>
             <span class="Welcome">
@@ -51,6 +51,50 @@
         </div>
         <div class="logo">
             <img src="{% static '/images/logo.jpeg' %}" alt=" Logo here">
+        </div>
+    </div>
+    <div class="second_section">
+        <div class="second_bg">
+
+        </div>
+        <div class="view_all_button">
+            <div class="view_all_bar">
+
+            </div>
+            <span class="view_all_text">View All</span>
+        </div>
+        <span class="second_subtitle">See what students like</span>
+        <span class="second_title">
+            <i class="fa-solid fa-book"></i>
+            Popular Courses
+        </span>
+        
+        <div class="v14_125">
+            <div class="v14_121">
+
+            </div>
+            <div class="v14_120">
+
+            </div>
+            <span class="v14_124">GNG 5300 - Full Stack Cloud Development</span>
+        </div>
+        <div class="v14_126">
+            <div class="v14_127">
+
+            </div>
+            <span class="v14_129">Code XXXX - Course name</span>
+            <div class="v14_135">
+
+            </div>
+        </div>
+        <div class="v14_130">
+            <div class="v14_131">
+
+            </div>
+            <span class="v14_133">Code XXXX - Course name</span>
+            <div class="v14_136">
+
+            </div>
         </div>
     </div>
 </body>
@@ -65,7 +109,7 @@
   body {
     font-size: 14px;
   }
-  .v8_60 {
+  .header {
     width: 100%;
     height: 783px;
     opacity: 1;
@@ -76,7 +120,7 @@
   }
 
   /* use a pseudo-element to isolate the bg image from other elements   */
-  .v8_60::before {
+  .header::before {
     content: "";
     background-color: #EEEEEE;
     background-image: url("{% static '/images/home_bg.png' %}");
@@ -91,50 +135,31 @@
     opacity: 0.5;
   }
 
-  .v8_66 {
-    width: 32px;
-    height: 68px;
-    background: rgba(0,0,0,0.30000001192092896);
-    opacity: 1;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-  }
-
-  .v8_68 {
-    width: 32px;
-    height: 68px;
-    background: rgba(0,0,0,0.30000001192092896);
-    opacity: 1;
-    position: absolute;
-    top: 5px;
-    left: 4px;
-  }
-  .v8_69 {
+  .subtitle {
     width: 584px;
     color: rgba(80,72,72,1);
     position: absolute;
     top: 499px;
-    left: 450px;
+    left: 500px;
     font-family: Roboto;
     font-weight: Medium;
     font-size: 50px;
     opacity: 1;
     text-align: left;
   }
-  .v8_70 {
+  .title {
     width: 638px;
     color: rgba(0,0,0,1);
     position: absolute;
     top: 377px;
-    left: 450px;
+    left: 500px;
     font-family: Roboto;
     font-weight: Bold;
     font-size: 100px;
     opacity: 1;
     text-align: left;
   }
-  .v8_74 {
+  .menu {
     width: 853px;
     height: 78px;
     background-repeat: no-repeat;
@@ -143,10 +168,10 @@
     opacity: 1;
     position: absolute;
     top: 167px;
-    right: 450px;
+    right: 500px;
     overflow: hidden;
   }
-  .v8_75 {
+  .menubar {
     width: 853px;
     height: 78px;
     background: rgba(215,204,163,1);
@@ -156,7 +181,7 @@
     left: 0px;
     overflow: hidden;
   }
-  .v8_76 {
+  .homebar {
     width: 153px;
     height: 78px;
     background: rgba(123,117,68,1);
@@ -166,7 +191,7 @@
     left: 0px;
     overflow: hidden;
   }
-  .v8_77 {
+  .home {
     width: 88px;
     color: rgba(255,255,255,1);
     position: absolute;
@@ -178,7 +203,7 @@
     opacity: 1;
     text-align: left;
   }
-  .v8_78 {
+  .drop {
     width: 177px;
     color: rgba(0,0,0,1);
     position: absolute;
@@ -190,7 +215,7 @@
     opacity: 1;
     text-align: left;
   }
-  .v8_82 {
+  .schdule {
     width: 279px;
     color: rgba(0,0,0,1);
     position: absolute;
@@ -202,7 +227,7 @@
     opacity: 1;
     text-align: left;
   }
-  .v8_79 {
+  .search {
     width: 143px;
     color: rgba(0,0,0,1);
     position: absolute;
@@ -214,7 +239,7 @@
     opacity: 1;
     text-align: left;
   }
-  .v8_80 {
+  .add {
     width: 179px;
     color: rgba(0,0,0,1);
     position: absolute;
@@ -238,7 +263,7 @@
     left: 1px;
     overflow: hidden;
   }
-  .v11_86 {
+  .userbar {
     width: 100%;
     height: 67px;
     background: rgba(187,177,152,1);
@@ -259,7 +284,7 @@
     text-align: right;
   }
 
-  .logo {
+ .logo {
     width: 247px;
     height: 214px;
     background-repeat: no-repeat;
@@ -268,7 +293,240 @@
     opacity: 1;
     position: absolute;
     top: 113px;
-    left: 450px;
+    left: 500px;
     overflow: hidden;
   }
+ .second_section {
+  width: 100%;
+  height: 827px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+ .second_bg {
+  width: 100%;
+  height: 827px;
+  background: #FCFFFC;
+  opacity: 0.6499999761581421;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+ .view_all_button {
+  width: 292px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 305px;
+  right: 590px;
+  overflow: hidden;
+}
+ .view_all_bar {
+  width: 292px;
+  height: 60px;
+  background: rgba(42,151,252,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+ .view_all_text {
+  width: 225px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 6px;
+  left: 67px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 40px;
+  opacity: 1;
+  text-align: left;
+}
+ .second_subtitle {
+  width: 589px;
+  color: rgba(0,0,0,0.6000000238418579);
+  position: absolute;
+  top: 201px;
+  left: 1600px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 40px;
+  opacity: 1;
+  text-align: left;
+}
+.second_title {
+  width: 647px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 119px;
+  left: 1520px;
+  font-family: Roboto;
+  font-weight: Bold;
+  font-size: 65px;
+  opacity: 1;
+  text-align: left;
+}
+
+.v14_125 {
+  width: 585px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 114px;
+  left: 450px;
+  overflow: hidden;
+}
+.v14_121 {
+  width: 585px;
+  height: 300px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+.v14_120 {
+  width: 585px;
+  height: 201px;
+  background: url("../images/v14_120.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+.v14_124 {
+  width: 550px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 213px;
+  left: 17px;
+  font-family: Roboto;
+  font-weight: Medium;
+  font-size: 35px;
+  opacity: 1;
+  text-align: left;
+}
+.v14_126 {
+  width: 585px;
+  height: 300px;
+  background: url("../images/v14_126.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 464px;
+  left: 351px;
+  overflow: hidden;
+}
+.v14_127 {
+  width: 585px;
+  height: 300px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.v14_129 {
+  width: 550px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 213px;
+  left: 18px;
+  font-family: Roboto;
+  font-weight: Medium;
+  font-size: 35px;
+  opacity: 1;
+  text-align: left;
+}
+.v14_135 {
+  width: 585px;
+  height: 202px;
+  background: url("../images/v14_135.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
+.v14_130 {
+  width: 585px;
+  height: 300px;
+  background: url("../images/v14_130.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 464px;
+  left: 144px;
+  overflow: hidden;
+}
+.v14_131 {
+  width: 585px;
+  height: 300px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.v14_133 {
+  width: 550px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 213px;
+  left: 17px;
+  font-family: Roboto;
+  font-weight: Medium;
+  font-size: 35px;
+  opacity: 1;
+  text-align: left;
+}
+.v14_136 {
+  width: 583px;
+  height: 202px;
+  background: url("../images/v14_136.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+}
   </style>
