@@ -8,4 +8,13 @@ def index(request):
     return HttpResponse(template.render())
 
 def course_detail(request):
-    return HttpResponse("Page Course Detail")
+    return render(request, 'course_detail.html')
+
+def course_list(request):
+    return render(request, 'course_list.html')
+
+def Xiong(request):
+    return render(request, 'Xiong.html')
+
+def test(request):
+    return render(request, 'test.html')
