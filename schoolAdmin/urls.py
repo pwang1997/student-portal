@@ -7,3 +7,4 @@ urlpatterns = [
     path('modify-professor/', views.modify_professor, name='modify-professor'),
     path('modify-course/', views.modify_course, name='modify-course'),
 ]
+
