@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 <style>
+html {
+  scroll-behavior: smooth;
+ }
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
@@ -37,6 +40,9 @@ header{
     <a href="http://127.0.0.1:8000/student/search/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Search Classes</a>
     <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Add Classes</a>
     <a href="http://127.0.0.1:8000/student/drop/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Drop Classes</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
+      Log Out  <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
   </div>
 
   <!-- Menubar on small screens -->
@@ -45,6 +51,7 @@ header{
     <a href="http://127.0.0.1:8000/student/search/" class="w3-bar-item w3-button w3-padding-large">Search Classes</a>
     <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-padding-large">Add Classes</a>
     <a href="http://127.0.0.1:8000/student/drop/" class="w3-bar-item w3-button w3-padding-large">Drop Classes</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large"><i class="fa-solid fa-right-from-bracket"></i>Log Out</a>
   </div>
 </div>
 
@@ -52,11 +59,11 @@ header{
 <header class="w3-container w3-red w3-center" style="padding:300px 16px">
   <h1 class="w3-margin " style="color:#000000;font-size: 3vw;font-weight: bold;">Enrollment</h1>
   <p style="color:#052776;font-size: 1.5vw;">Manage your courses</p>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+  <a href="#my_class_schdule" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</a>
 </header>
 
 <!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
+<div id="my_class_schdule" class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content" style="max-width:1080px;">
     <h1>My Class Schdule</h1>
     <div class="w3-dropdown-hover w3-padding-16">
@@ -151,11 +158,6 @@ header{
             </tr>
         </table>
     </div>
-<!--
-    <div class="w3-third w3-center">
-      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
-    </div>
-    -->
   </div>
 </div>
 
