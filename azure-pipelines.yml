@@ -12,6 +12,5 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - script: |
-        echo "test"
+    - script: echo "test"
       displayName: 'YAML Checks'
