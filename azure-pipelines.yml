@@ -5,10 +5,10 @@ trigger:
 - main
 
 stages:
-- stage: Azure-Script-Check
+- stage:
   jobs:
   - job:
-    displayName: pipeline-check
+    displayName: pipeline_check
     pool:
       vmImage: 'ubuntu-latest'
     steps:
