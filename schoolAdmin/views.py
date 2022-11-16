@@ -2,11 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
-
 # Create your views here.
 def index(request):
     template = loader.get_template('index.html')
     return HttpResponse(template.render())
+
+def admin_login(request):
+    return render(request, 'admin-login.html')
 
 def modify_student(request):
     return render(request, 'modify-student.html')

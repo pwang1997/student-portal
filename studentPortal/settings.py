@@ -59,7 +59,7 @@ ROOT_URLCONF = 'studentPortal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'schoolAdmin', 'templates')],
+         'DIRS': [os.path.join(BASE_DIR, 'schoolAdmin', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

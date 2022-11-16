@@ -26,17 +26,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="http://127.0.0.1:8000/school-admin/" class="w3-bar-item w3-button w3-padding-large w3-brown">Home</a>
     <a href="http://127.0.0.1:8000/school-admin/modify-course/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Modify Courses</a>
-    <a href="http://127.0.0.1:8000/school-admin/modify-student/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Modify Students By Course</a>
-    <a href="http://127.0.0.1:8000/school-admin/modify-professor/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Modify Professors by Course</a>
+    <a href="http://127.0.0.1:8000/school-admin/modify-student/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Modify Students</a>
+    <a href="http://127.0.0.1:8000/school-admin/modify-professor/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Modify Faculty</a>
   </div>
   
 
   <!-- Menubar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="http://127.0.0.1:8000/student/class_schdule/" class="w3-bar-item w3-button w3-padding-large">My Class Schedule</a>
-    <a href="http://127.0.0.1:8000/student/search/" class="w3-bar-item w3-button w3-padding-large">Search Classes</a>
-    <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-padding-large">Add Classes</a>
-    <a href="http://127.0.0.1:8000/student/drop/" class="w3-bar-item w3-button w3-padding-large">Drop Classes</a>
+    <a href="http://127.0.0.1:8000/school-admin/" class="w3-bar-item w3-button w3-padding-large w3-brown">Home</a>
+    <a href="http://127.0.0.1:8000/school-admin/modify-course/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Modify Courses</a>
+    <a href="http://127.0.0.1:8000/school-admin/modify-student/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Modify Students</a>
+    <a href="http://127.0.0.1:8000/school-admin/modify-professor/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Modify Faculty</a>
   </div>
 </div>
 
@@ -205,6 +205,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-row w3-section">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa-solid fa-hashtag"></i></i></div>
         <div class="w3-rest">
+
         <input class="w3-input w3-border" name="last" type="text" placeholder="Employee ID">
         </div>
     </div>
@@ -215,12 +216,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <input class="w3-input w3-border" name="email" type="text" placeholder="Employee email address">
         </div>
     </div>
-
-
     <div class="w3-row w3-section">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
         <div class="w3-rest">
         <input class="w3-input w3-border" name="message" type="text" placeholder="Explain your issue in detail">
+
         </div>
     </div>
 
