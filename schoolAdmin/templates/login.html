@@ -23,14 +23,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-top">
   <div class="w3-bar w3-2021-desert-mist w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="http://127.0.0.1:8000/school-admin/login/" class="w3-bar-item w3-button w3-padding-large w3-brown">Home</a>
+    <a href="http://127.0.0.1:8000/school-admin/login" class="w3-bar-item w3-button w3-padding-large w3-brown">Home</a>
   
   </div>
   
 
   <!-- Menubar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="http://127.0.0.1:8000/school-admin/login/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="http://127.0.0.1:8000/school-admin/login" class="w3-bar-item w3-button w3-padding-large">Home</a>
   </div>
 </div>
 
@@ -167,14 +167,14 @@ span.psw {
 <body>
 
 <h2>Modal Login Form</h2>
-<center>
+<!-- <center>
   <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Admin Login</button>
-</center>
+</center> -->
 
 
-<div id="id01" class="modal">
-  
-  <form class="modal-content animate" action="/action_page.php" method="post">
+<div id="id01" >
+  {% csrf_token %}
+  <form class="modal-content animate" action="handle_admin_login" method="post">
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
