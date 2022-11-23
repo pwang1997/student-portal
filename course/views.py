@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import loader
+from .models import Course
 
 # Create your views here.
 def index(request):
@@ -42,30 +43,38 @@ def create_view(request):
     # dictionary for initial data with
     # field names as keys
     context ={}
+    
+    form = Form(request.POST)
+    context['form']= form
+    return render(request, "create_view.html", context)
 
+def handle_create_course(request):
+    if request.method != "POST":
+        return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
+        
     # add the dictionary during initialization
-    # form = Form(request.POST or None)
-    # if Course.is_valid():
-    #     Course.save()
-    Course_ID = request.POST.get('Course_ID')
-    Course_name = request.POST.get('Course_name')
-    Course_code = request.POST.get('Course_code')
-    Section = request.POST.get('Section')
-    Units = request.POST.get('Units')
-    Days_and_time = request.POST.get('Days_and_time')
-    Room =  request.POST.get('Room')
-    Instructor = request.POST.get('Instructor')
-    Meeting_Dates = request.POST.get('Meeting_Dates')
-    Status = request.POST.get('Status')
-    Capacity = request.POST.get('Capacity')
-    Course_description = request.POST.get('Course_description')
-    course = Course.objects.create(Course_ID=Course_ID,Course_name=Course_name,Course_code=Course_code,Section=Section,Units=Units,Days_and_time=Days_and_time,Room=Room,Instructor=Instructor,Meeting_Dates=Meeting_Dates,Status=Status,Capacity=Capacity,Course_description=Course_description)
+    name = request.POST.get('name')
+    code = request.POST.get('code')
+    section = request.POST.get('section')
+    units = request.POST.get('units')
+    timetable = request.POST.get('timetable')
+    location =  request.POST.get('location')
+    instructor = request.POST.get('instructor')
+    course_dates = request.POST.get('course_dates')
+    status = request.POST.get('status')
+    capacity = request.POST.get('capacity')
+    description = request.POST.get('description')
+
+    course = Course(name=name,code=code,
+                    section=section,units=units,
+                    timetable=timetable,
+                    location=location,instructor=instructor,
+                    course_dates=course_dates,status=status,
+                    capacity=capacity,description=description)
 
     course.save()
-    # form = Form(request.POST)
-    # form.save()
-    # context['form']= form
-    return render(request, "create_view.html", context)
+
+    return redirect('/course/list')
 
 def list_view(request):
     # dictionary for initial data with
