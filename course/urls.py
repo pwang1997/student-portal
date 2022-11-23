@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('list/', views.course_list, name='course_list'), 
+    path('list/', views.list_view, name='course_list'), 
     path('detail/', views.course_detail, name='course_detail'), 
     path('1/', views.course_detail, name='course_detail'), # jump to the specific course details
     path('home/', views.formset_view, name='add course'),
