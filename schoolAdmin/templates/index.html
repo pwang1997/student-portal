@@ -59,41 +59,15 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         </select>
     </div>
     
-
-
-    <!DOCTYPE html>
-    <html>
-    
-    <head>
-      <link href=
-    "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-        rel="stylesheet" />
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity=
-        "sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous">
-      </script>
-      <script src=
-    "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js">
-      </script>
-    </head>
-    
-    <body>
-        
-        <select class="ui search dropdown">
-          <option value="">Subject</option>
-          <option value="GNG">GNG</option>
-          <option value="CSI">CSI</option>
-          <option value="MCG">MCG</option>
-          <option value="DTI">DTI</option>
+    <div class="w3-dropdown-hover w3-padding-16">
+      <select class="w3-select w3-border" name="option">
+          <option value="" disabled selected>Course Code</option>
           <option value="ELG">ELG</option>
-        </select>
+          <option value="CSI">CSI</option>
+          <option value="GNG">GNG</option>
+      </select>
+    </div>
     
-      <script>
-        $('.ui.dropdown').dropdown();
-      </script>
-    </body>
-
     <div class="w3-dropdown-hover w3-padding-16">
       <select class="w3-select w3-border" name="option">
           <option value="" disabled selected>Course Code</option>
@@ -141,7 +115,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
           <option value="3">100</option>
       </select>
     </div>
-    <button type="button">Add Class!</button>
+    <button type="button">View Class!</button>
     <div class="w3-responsive">
         <table class="w3-table-all w3-hoverable">
             <thead>
@@ -162,7 +136,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             </thead>
             <tr>
               <th>1</th>
-              <td onclick="location.href='http://localhost:8000/course/1/'"><u>Full Stack Cloud Development</u></td>
+              <td><u>Full Stack Cloud Development</u></td>
               <th>GNG 5300</th>
               <th>A00</th>
               <th>3</th>
@@ -176,7 +150,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             </tr>
             <tr>
               <th>2</th>
-              <td onclick="location.href='http://localhost:8000/course/2/'"><u>Natural Language Processing</u></td>
+              <td><u>Natural Language Processing</u></td>
               <th>CSI 5386</th>
               <th>F00</th>
               <th>3</th>
@@ -190,7 +164,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             </tr>
             <tr>
               <th>3</th>
-              <td onclick="location.href='http://localhost:8000/course/3/'"><u>Cyber Security</u></td>
+              <td><u>Cyber Security</u></td>
               <th>GNG 5300</th>
               <th>B00</th>
               <th>3</th>
