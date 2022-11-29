@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from student.models import Student
-from course.models import Course
-from professor.models import Professor
+#from student.models import Student
+#from course.models import Course
+#from professor.models import Professor
 
 # Create your views here.
 def index(request):
@@ -31,7 +31,12 @@ def modify_student_nlp(request):
 def modify_professor_nlp(request):
     return render(request, 'modify-professor-nlp.html')
 
+def modify_course_add(request):
+    return render(request, 'modify-course-add.html')
 
+
+
+"""
 
 def add_course(request):
     if request.method == 'POST':
@@ -136,3 +141,4 @@ def delete_professor(request, professor_id):
 
     except:
         return HttpResponse (400)
+"""
