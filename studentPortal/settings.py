@@ -24,9 +24,9 @@ STATICFILES_DIR = [os.path.join(BASE_DIR, 'schoolAdmin/static'),]
 SECRET_KEY = 'django-insecure-m(u8j^t+a_wbuwphr)nu0ym@#lgk617o9))qvh_44k2q!eqs11'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'course',
     'student',
     'professor',
-    'schoolAdmin'
+    'schoolAdmin',
+    'studentPortal'
 ]
 
 MIDDLEWARE = [

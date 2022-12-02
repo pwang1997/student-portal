@@ -13,5 +13,5 @@ urlpatterns = [
     path('modify-student/create-student/', views.modify_student_create, name='modify-student-add'),
     path('modify-professor/nlp/', views.modify_professor_nlp, name='modify-professor_nlp'),
     path('modify-professor/create-professor/', views.modify_professor_create, name='modify-professor_create'),
+    path('handle_admin_login', views.handle_admin_login, name='handle_admin_login')
 ]
-
