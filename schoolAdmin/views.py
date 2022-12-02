@@ -153,4 +153,3 @@ def delete_professor(request, professor_id):
 
     except:
         return HttpResponse (400)
-
