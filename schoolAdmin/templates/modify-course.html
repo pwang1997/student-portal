@@ -47,8 +47,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <div class="w3-content" style="max-width:1080px;">
     <h1>Modify Course Attributes</h1>
     <h3>OR</h3>
-    <form action="http://localhost:8000/school-admin/modify-course/add-course/">
-      <input type="submit" value="Add Course" />
+    <form action="http://localhost:8000/school-admin/modify-course/create-professor/">
+      <input type="submit" value="Add New Course" />
     </form>
     <div class="w3-dropdown-hover w3-padding-16">
         <select class="w3-select w3-border" name="option">
@@ -144,8 +144,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                 </tr>
             </thead>
             <tr>
-              <th>2</th>
-              <td onclick="location.href='http://localhost:8000/school-admin/modify-course/nlp/'"><u>Natural Language Processing</u></td>
+              <th>1</th>
+              <th>Natural Language Processing</th>
               <th>CSI 5386</th>
               <th>F00</th>
               <th>3</th>
@@ -155,11 +155,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
               <th>09/07/2022 - 12/07/2022</th>
               <th>100</th>
               <th>Vero Landriault, Michael Smith...</th>
-              <th><u>Delete</u></th>
+              <td onclick="location.href='http://localhost:8000/school-admin/modify-course/nlp/'"><u>Modify</u></td>
             </tr>
             <tr>
               <th>3</th>
-              <td onclick="location.href='http://localhost:8000/school-admin/modify-course/cs/'"><u>Cyber Security</u></td>
+              <th>Cyber Security</th>
               <th>GNG 5300</th>
               <th>B00</th>
               <th>3</th>
@@ -169,11 +169,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
               <th>09/07/2022 - 12/07/2022</th>
               <th>100</th>
               <th>John Jones, Clark Kent...</th>
-              <th><u>Delete</u></th>
+              <td onclick="location.href='http://localhost:8000/school-admin/modify-course/fscc/'"><u>Modify</u></td>
             </tr>
             <tr>
                 <th>1</th>
-                <td onclick="location.href='http://localhost:8000/school-admin/modify-course/fscc/'"><u>Full Stack Cloud Development</u></td>
+                <th>Full Stack Cloud Development</th>
                 <th>GNG 5300</th>
                 <th>A00</th>
                 <th>3</th>
@@ -183,7 +183,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                 <th>09/07/2022 - 12/07/2022</th>
                 <th>100</th>
                 <th>Thomas Courtney, Jane Smith...</th>
-                <th><u>Delete</u></th>
+                <td onclick="location.href='http://localhost:8000/school-admin/modify-course/fscc/'"><u>Modify</u></td>
               </tr>
         </table>
     </div>

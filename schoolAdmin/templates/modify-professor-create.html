@@ -45,123 +45,24 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content" style="max-width:1080px;">
-    <h1>Filter courses and modify faculty</h1>
-    <h3>OR</h3>
-    <form action="http://localhost:8000/school-admin/modify-professor/create-professor/">
-      <input type="submit" value="Add New Faculty Member" />
-    </form>
-  
-    
+    <h1>Create New Faculty Member</h1>
 
-    <div class="w3-dropdown-hover w3-padding-16">
-        <select class="w3-select w3-border" name="option">
-            <option value="" disabled selected>Select a term</option>
-            <option value="1">2022 Summer</option>
-            <option value="2">2022 Fall</option>
-            <option value="3">2023 Winter</option>
-        </select>
-    </div>
-    
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Course Code</option>
-          <option value="ELG">ELG</option>
-          <option value="CSI">CSI</option>
-          <option value="GNG">GNG</option>
-      </select>
-    </div>
-    
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Course Code</option>
-          <option value="1">5000</option>
-          <option value="2">5100</option>
-          <option value="3">5300</option>
-      </select>
-    </div>
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Section</option>
-          <option value="1">A00</option>
-          <option value="2">B00</option>
-          <option value="3">C00</option>
-      </select>
-    </div>
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Starting Time</option>
-          <option value="1">8:30</option>
-          <option value="2">11:30</option>
-          <option value="3">14:30</option>
-      </select>
-    </div>
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Location</option>
-          <option value="1">CRX</option>
-          <option value="2">FTX</option>
-          <option value="3">SIT</option>
-      </select>
-    </div>
-    <button type="button">Filter Course</button>
-    <div class="w3-responsive">
-        <table class="w3-table-all w3-hoverable">
-            <thead>
-                <tr class="w3-brown">
-                <th>ID</th>
-                <th>Course Name</th>
-                <th>Course Code</th>
-                <th>Section</th>
-                <th>Units</th>
-                <th>Time</th>
-                <th>Room</th>
-                <th>Instructor</th>
-                <th>Meeting Dates</th>
-                <th>Status</th>
-                <th>Capacity</th>
-                <th>Students</th>
-                <th></th>
-                </tr>
-            </thead>
-            <tr>
-              <th>1</th>
-              <td>Full Stack Cloud Development</td>
-              <th>GNG 5300</th>
-              <th>A00</th>
-              <th>3</th>
-              <th>Tu 5:30PM - 8:20PM</th>
-              <th>150 Louis Pasteur (STM) 034</th>
-              <th>Masoud Dorrikhteh</th>
-              <th>09/07/2022 - 12/07/2022</th>
-              <th>Available</th>
-              <th>100</th>
-              <th>Thomas Courtney, Jane Smith...</th>
-              <th onclick="location.href='http://localhost:8000/school-admin/modify-professor/fscc/'"><u>Modify</u> </th>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Natural Language Processing</td>
-                <th>CSI 5386</th>
-                <th>F00</th>
-                <th>3</th>
-                <th>Mo 2:30PM - 5:30PM</th>
-                <th>136 Jean-Jacques L. (VNR) 3075</th>
-                <th>Daina Inkpen</th>
-                <th>09/07/2022 - 12/07/2022</th>
-                <th>Available</th>
-                <th>100</th>
-                <th>Vero Landriault, Michael Smith...</th>
-                <th onclick="location.href='http://localhost:8000/school-admin/modify-professor/nlp/'"><u>Modify</u> </th>
-              </tr>
-
-
-        </table>
-    </div>
-<!--
-    <div class="w3-third w3-center">
-      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
-    </div>
-    -->
+      
+      <body>
+          
+        <form action="/action_page.php">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="John"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe"><br><br>
+            <label for="lname">Position:</label><br>
+            <input type="text" id="dob" name="dob" value="Professor"><br><br>
+            <label for="lname">Employee ID:</label><br>
+            <input type="text" id="Faculty" name="faculty" value="Engineering"><br><br>
+            <input type="submit" value="Submit">
+          </form>
+        </script>
+      </body>
   </div>
 </div>
 
