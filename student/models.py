@@ -12,3 +12,4 @@ class registered_students_in_a_course (models.Model):
     professor_id = models.IntegerField()
     student_id = models.IntegerField()
     grade = models.CharField(max_length=50)
+

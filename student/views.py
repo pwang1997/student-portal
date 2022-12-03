@@ -7,7 +7,7 @@ def student_home(request):
     # template = loader.get_template('student_home.html')
     context ={}
     # check user login and role status
-    if request.session['user'] == None or request.session['user']['role'] != "student":
+    if request.session['user'] == None or request.session['user']['role'] != "student": 
         return HttpResponseBadRequest("Invalid User Role", status=400)
     
     return render(request, 'student_home.html', context)
