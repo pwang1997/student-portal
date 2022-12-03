@@ -1,27 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import (get_object_or_404,
+							render, redirect,
+							HttpResponseRedirect)
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import loader
 from .models import Course
-
-# Create your views here.
-def index(request):
-    template = loader.get_template('index.html')
-    return HttpResponse(template.render())
-
-def course_detail(request):
-    return render(request, 'course_detail.html')
-
-def course_list(request):
-    return render(request, 'course_list.html')
-
-def Xiong(request):
-    return render(request, 'Xiong.html')
-
-def test(request):
-    return render(request, 'test.html')
-
-
-
 
 # course add function
 from .forms import Form
@@ -86,14 +68,6 @@ def list_view(request):
          
     return render(request, "list_view.html", context)
 
-
-
-from django.shortcuts import (get_object_or_404,
-							render,
-							HttpResponseRedirect)
-
-
-
 # after updating it will redirect to detail_View
 def detail_view(request, id):
 	# dictionary for initial data with
@@ -121,9 +95,19 @@ def update_view(request, id):
 	# redirect to detail_view
 	if form.is_valid():
 		form.save()
-		return HttpResponseRedirect("/"+id)
+		return HttpResponseRedirect("/course/detail_view/"+str(id))
 
 	# add form dictionary to context
 	context["form"] = form
 
 	return render(request, "update_view.html", context)
+
+
+def search(request):
+    if  request.method == "POST":
+        query_name = request.POST.get('name', None)
+        if query_name:
+            results = Course.objects.filter(name__contains=query_name)
+            return render(request, 'search.html', {"results":results})
+        
+    return render(request, 'search.html')
