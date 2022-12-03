@@ -94,7 +94,7 @@
             <td>{{ student.email}}</td>
             <td>{{ student.major}}</td>
             <!-- <td> {{ student.status }}</td> -->
-            <td><button type="button">UPDATE</button></td>
+            <th><a href={% url 'student_update' id=student.id %}><button type="button">UPDATE</button></a></th>
             <td><a href={% url 'handle_delete_student' id=student.id %}><button type="button">DELETE</button></a></td>
           </tr>
           {% endfor %}
