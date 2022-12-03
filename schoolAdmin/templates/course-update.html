@@ -81,7 +81,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <input type="text" id="location" name="location" value={{ course.location }} /><br>
 
       <label for="instructor">Instructor:</label><br>
-      <input type="text" id="instructor" name="instructor" value={{ course.instructor }} /><br>
+      <select id="instructor" name="instructor" disabled>
+        {% for professor in professors %}
+        <option value={{ professor.email }} {% if email == professor.email %}selected{% endif %}>{{ professor.email }}</option>
+        {% endfor %} 
+      </select><br>
 
       <label for="capacity">Capacity:</label><br>
       <input type="text" id="capacity" name="capacity" value={{ course.capacity }} /><br>
