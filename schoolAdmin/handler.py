@@ -79,3 +79,22 @@ def handle_create_course(request):
     course.save()
 
     return redirect('/school-admin/modify-course')
+
+# request handler for creating professor
+def handle_create_professor(request):
+    if request.method != "POST":
+        return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
+    
+    first_name = request.POST.get('fname')
+    last_name = request.POST.get('lname')
+    email = request.POST.get('email')
+    position = request.POST.get('position')
+    department = request.POST.get("department")
+    
+    professor = Professor(first_name=first_name, last_name=last_name,
+                          email=email, password="12345",  
+                          position=position, department=department)
+    professor.save()
+    return redirect('/school-admin/modify-professor')
+    
+    

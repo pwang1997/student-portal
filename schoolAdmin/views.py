@@ -35,7 +35,7 @@ def modify_course(request):
 def modify_professor(request):
     context ={}
     # add the dictionary during initialization
-    context["courses"] = Professor.objects.all()
+    context["professors"] = Professor.objects.all()
     return render(request, 'modify-professor.html', context)
 
 def modify_course_nlp(request):
@@ -67,7 +67,6 @@ def update_course(request, course_id):
   return HttpResponse(template.render(context, request))
   
 
-
 def delete_course(request, course_id):
     course_delete_instance = Course.objects.get(id=course_id)
     try:
@@ -96,21 +95,6 @@ def delete_student(request, student_id):
     except:
         return HttpResponse (400)
 
-
-
-def add_professor(request):
-    if request.method == 'POST':
-        department= request.POST["department"]
-        salary= request.POST["salary"]
-        
-        professor_instance = Professor(department=department, salary=salary)
-        professor_instance.save()
-        
-        return HttpResponse (200)
-
-    else:
-
-        return HttpResponse (400)
 
 def update_professor(request, professor_id):
   Update_professor_instance = Professor.objects.get(id=professor_id)
