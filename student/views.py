@@ -3,9 +3,26 @@ from django.http import HttpResponse
 from django.template import loader
 
 # Create your views here.
-def index(request):
-    template = loader.get_template('index.html')
+def student_home(request):
+    template = loader.get_template('student_home.html')
     return HttpResponse(template.render())
 
-def course(request):
-    return HttpResponse("Student Dashboard: Page Enrolled Course")
+def drop(request):
+    template = loader.get_template('drop.html')
+    return HttpResponse(template.render())
+
+def class_schdule(request):
+    template = loader.get_template('class_schdule.html')
+    return HttpResponse(template.render())
+
+def add(request):
+    template = loader.get_template('add.html')
+    return HttpResponse(template.render())
+
+def search(request):
+    template = loader.get_template('search.html')
+    return HttpResponse(template.render())
+
+def home(request):
+    template = loader.get_template('home.html')
+    return HttpResponse(template.render())
