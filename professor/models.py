@@ -9,4 +9,4 @@ class registered_courses (models.Model):
    
 class Professor(Users):
       department = models.CharField(max_length = 255)
-      salary = IntegerField()
+      position = models.CharField(max_length=255)

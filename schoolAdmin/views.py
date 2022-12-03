@@ -8,23 +8,35 @@ from student.models import Student
 from course.models import Course
 from professor.models import Professor
 
-
 # Create your views here.
 def index(request):
     template = loader.get_template('index.html')
     return HttpResponse(template.render())
 
+# admin login page
 def admin_login(request):
-    return render(request, 'admin-login.html')
+    return render(request, 'login.html')
 
+# admin/student portal
 def modify_student(request):
-    return render(request, 'modify-student.html')
+    context ={}
+    # add the dictionary during initialization
+    context["students"] = Student.objects.all()
+    return render(request, 'modify-student.html', context)
 
+# admin/course portal
 def modify_course(request):
-    return render(request, 'modify-course.html')
+    context ={}
+    # add the dictionary during initialization
+    context["courses"] = Course.objects.all()
+    return render(request, 'modify-course.html', context)
 
+# admin/professor portal
 def modify_professor(request):
-    return render(request, 'modify-professor.html')
+    context ={}
+    # add the dictionary during initialization
+    context["professors"] = Professor.objects.all()
+    return render(request, 'modify-professor.html', context)
 
 def modify_course_nlp(request):
     return render(request, 'modify-course-nlp.html')
@@ -44,31 +56,6 @@ def modify_student_create(request):
 
 def modify_professor_create(request):
     return render(request, 'modify-professor-create.html')
-def professor(request):
-    return HttpResponse("Admin Dashboard: Page Professor List")
-
-def course(request):
-    return HttpResponse("Admin Dashboard: Page Course List")
-
-def student(request):
-    return HttpResponse("Admin Dashboard: Page Student List")
-
-def add_course(request):
-    if request.method == 'POST':
-        description= request.POST["description"]
-        prerequisite = request.POST["prerequisite"]
-        department = request.POST["department"]
-        code = request.POST["code"]
-        section = request.POST["section"]
-        
-        course_instance = Course(description=description, prerequisite=prerequisite, department=department, code=code, section=section)
-        course_instance.save()
-        
-        return HttpResponse (200)
-
-    else:
-
-        return HttpResponse (400)
 
 
 def update_course(request, course_id):
@@ -80,7 +67,6 @@ def update_course(request, course_id):
   return HttpResponse(template.render(context, request))
   
 
-
 def delete_course(request, course_id):
     course_delete_instance = Course.objects.get(id=course_id)
     try:
@@ -90,20 +76,6 @@ def delete_course(request, course_id):
     except:
         return HttpResponse (400)
 
-
-
-def add_student(request):
-    if request.method == 'POST':
-        major= request.POST["major"]
-        
-        student_instance = Student(major=major)
-        student_instance.save()
-        
-        return HttpResponse (200)
-
-    else:
-
-        return HttpResponse (400)
 
 def update_student(request, student_id):
   Update_student_instance = Student.objects.get(id=student_id)
@@ -123,21 +95,6 @@ def delete_student(request, student_id):
     except:
         return HttpResponse (400)
 
-
-
-def add_professor(request):
-    if request.method == 'POST':
-        department= request.POST["department"]
-        salary= request.POST["salary"]
-        
-        professor_instance = Professor(department=department, salary=salary)
-        professor_instance.save()
-        
-        return HttpResponse (200)
-
-    else:
-
-        return HttpResponse (400)
 
 def update_professor(request, professor_id):
   Update_professor_instance = Professor.objects.get(id=professor_id)
@@ -159,24 +116,3 @@ def delete_professor(request, professor_id):
 
 def login(request):
     return render(request, './login.html')
-
-def handle_admin_login(request):
-    if request.method != "POST":
-        return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
-    # get form parameters
-    username = request.POST.get('uname')
-    password = request.POST.get('psw')
-    token = request.POST.get('token')
-
-    # hard coded admin user
-    success = username == "admin" and password == "admin" and token == 'thisisatest'
-
-    # validate admin user credentials
-    is_user_exists = SchoolAdmin.objects.filter(email=username, password=password, token=token)
-
-    # if admin not exists, create one
-    if is_user_exists.__len__() == 0:
-        user = SchoolAdmin(email=username, first_name="admin", last_name="admin", password=password, token="thisisatest")
-        user.save()
-    
-    return redirect('/school-admin/') if success else HttpResponseBadRequest("wrong admin", status=400)
