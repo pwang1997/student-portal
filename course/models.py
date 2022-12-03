@@ -5,7 +5,7 @@ class Course(models.Model):
     # fields of the model
     name = models.TextField()
     department = models.CharField(max_length=50)
-    code = models.TextField()
+    code = models.TextField() 
     section = models.TextField()
     units = models.TextField()
     timetable = models.TextField()
@@ -15,5 +15,5 @@ class Course(models.Model):
     status = models.TextField()
     capacity = models.TextField()
     description = models.TextField(default='N/A')
-    prerequisite = models.CharField(max_length=100)
+    # prerequisite = models.CharField(max_length=100)
     last_modified = models.DateTimeField(auto_now_add = True)

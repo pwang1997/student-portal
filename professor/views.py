@@ -13,8 +13,6 @@ def student_list(request,course_code):
     template = loader.get_template('student_list.html')
     return HttpResponse(template.render())
 
-
-
 #professor can view the courses he is teaching
 def display_course(request, professor_id):
 	co = registered_courses.objects.filter(professor_id=professor_id)
@@ -35,11 +33,3 @@ def update_student_grade (request, student_id, course_id, professor_id):
     'update_student_grade_instance': update_student_grade_instance,
   }
   return HttpResponse(template.render(context, request))
-
-
-
-
-
-
-
-
