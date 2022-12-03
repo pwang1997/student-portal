@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Lato", sans-serif
+        }
+
+        .w3-bar,
+        h1,
+        button {
+            font-family: "Montserrat", sans-serif
+        }
+
+        .fa-anchor,
+        .fa-coffee {
+            font-size: 200px
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menubar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-2021-desert-mist w3-card w3-left-align w3-large">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red"
+                href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="http://127.0.0.1:8000/student/" class="w3-bar-item w3-button w3-padding-large w3-brown">Home</a>
+            <a href="http://127.0.0.1:8000/student/class_schdule/"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">My Class Schedule</a>
+            <a href="http://127.0.0.1:8000/student/search/"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Search Classes</a>
+            <a href="http://127.0.0.1:8000/student/add/"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Add Classes</a>
+            <a href="http://127.0.0.1:8000/student/drop/"
+                class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Drop Classes</a>
+        </div>
+
+        <!-- Menubar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+            <a href="http://127.0.0.1:8000/student/class_schdule/" class="w3-bar-item w3-button w3-padding-large">My
+                Class Schedule</a>
+            <a href="http://127.0.0.1:8000/student/search/" class="w3-bar-item w3-button w3-padding-large">Search
+                Classes</a>
+            <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-padding-large">Add Classes</a>
+            <a href="http://127.0.0.1:8000/student/drop/" class="w3-bar-item w3-button w3-padding-large">Drop
+                Classes</a>
+        </div>
+    </div>
+
+
+    <!-- First Grid -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content" style="max-width:1080px;">
+            <h1>Search result</h1>
+            <div class="w3-dropdown-hover w3-padding-16">
+                <form action="{% url 'search' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name">
+                    <input type="submit" name="submit" value="Search">
+                </form>
+
+                {% for result in results %}
+
+                <p>{{result.name}}</p>
+                <div class="w3-responsive">
+                    <table class="w3-table-all w3-hoverable">
+                        <thead>
+                            <tr class="w3-brown">
+                                <th>Name</th>
+                                <th>Code</th>
+                                <th>Section</th>
+                                <th>Units</th>
+                                <th>Timetable</th>
+                                <th>Location</th>
+                                <th>Instructor</th>
+                                <th>Course Dates</th>
+                                <th>Status</th>
+                                <th>Capacity</th>
+                            </tr>
+                        </thead>
+
+                        <tr>
+                            <td><a href={% url 'detail_view' id=result.id %}>{{result.name}}</a></td>
+                            <td>{{result.code}}</td>
+                            <td>{{result.section}}</td>
+                            <td>{{result.units}}</td>
+                            <td>{{result.timetable}}</td>
+                            <td>{{result.location}}</td>
+                            <td>{{result.instructor}}</td>
+                            <td>{{result.course_dates}}</td>
+                            <td>{{result.status}}</td>
+                            <td>{{result.capacity}}</td>
+                        </tr>
+                    </table>
+                </div>
+    {% endfor %}
+</body>
+
+</html>
