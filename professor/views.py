@@ -1,13 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import loader
 from professor.models import registered_courses
 from student.models import registered_students_in_a_course
 
 # Create your views here.
 def professor_home(request):
-    template = loader.get_template('professor_home.html')
-    return HttpResponse(template.render())
+    # template = loader.get_template('professor_home.html')
+    
+    context ={}
+    # check user login and role status
+    if request.session['user'] == None or request.session['user']['role'] != "professor":
+        return HttpResponseBadRequest("Invalid User Role", status=400)
+      
+    # return HttpResponse(template.render())
+    return render(request, 'professor_home.html', context)
 
 def student_list(request,course_code):
     template = loader.get_template('student_list.html')
