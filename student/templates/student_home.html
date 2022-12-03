@@ -85,21 +85,21 @@ header{
                 <th>Action</th>
                 </tr>
             </thead>
-              {% for data in dataset %}
+              {% for data in enrolled_courses.values() %}
               <tr>
-                <td><a href={% url 'detail_view' id=data.id %}>{{data.name}}</a></td>
-                <td>{{data.department}}</td>
-                <td>{{data.code}}</td>
-                <td>{{data.section}}</td>
-                <td>{{data.units}}</td>
-                <td>{{data.timetable}}</td>
-                <td>{{data.location}}</td>
-                <td>{{data.instructor}}</td>
-                <td>{{data.course_dates}}</td>
-                <td>{{data.status}}</td>
-                <td>{{data.capacity}}</td>
+                <td>{{data['course'].name}}</a></td>
+                <td>{{data['course'].department}}</td>
+                <td>{{data['course'].code}}</td>
+                <td>{{data['course'].section}}</td>
+                <td>{{data['course'].units}}</td>
+                <td>{{data['course'].timetable}}</td>
+                <td>{{data['course'].location}}</td>
+                <td>{{data['course'].instructor}}</td>
+                <td>{{data['course'].course_dates}}</td>
+                <td>{{data['grade']}}</td>
+                <td><button class="w3-btn w3-blue">Drop</button></td>
               </tr>
-                {% endfor %}
+              {% endfor %}
         </table>
     </div>
   </div>
