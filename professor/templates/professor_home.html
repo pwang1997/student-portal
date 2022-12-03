@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Professor Portal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<style>
+html {
+  scroll-behavior: smooth;
+ }
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+header{
+    width: 100%;
+    background-image: url("{% static '/images/home_bg.png' %}");
+    background-color: #EEEEEE;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.75;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Menubar -->
+<div class="w3-top">
+  <div class="w3-bar w3-2021-desert-mist w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-2021-desert-mist" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="http://127.0.0.1:8000/professor/" class="w3-bar-item w3-button w3-padding-large w3-brown">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
+      Log Out  <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </div>
+
+  <!-- Menubar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Add Classes</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large"><i class="fa-solid fa-right-from-bracket"></i>Log Out</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:300px 16px">
+  <h1 class="w3-margin " style="color:#000000;font-size: 3vw;font-weight: bold;">Professor Center</h1>
+  <p style="color:#052776;font-size: 1.5vw;">Manage your courses and students</p>
+  <a href="#my_classes" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</a>
+</header>
+
+<!-- First Grid -->
+<div id="my_classes" class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content" style="max-width:1080px;">
+    <h1>My Classes</h1>
+    <div class="w3-dropdown-hover w3-padding-16">
+        <select class="w3-select w3-border" name="option">
+            <option value="" disabled selected>Select a term</option>
+            <option value="1">2022 Summer</option>
+            <option value="2">2022 Fall</option>
+            <option value="3">2023 Winter</option>
+        </select>
+    </div>
+    <div class="w3-responsive">
+        <table class="w3-table-all w3-hoverable">
+            <thead>
+                <tr class="w3-brown">
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Course Code</th>
+                <th>Section</th>
+                <th>Units</th>
+                <th>Days&Time</th>
+                <th>Room</th>
+                <th>Meeting Dates</th>
+                <th>Status</th>
+                <th>Enrolled Students</th>
+                </tr>
+            </thead>
+            <tr>
+              <td>1</td>
+              <td>Full Stack Cloud Development</td>
+              <td>GNG 5300</td>
+              <td>C00</td>
+              <td>3</td>
+              <td>Tu 5:30PM - 8:20PM</td>
+              <td>150 Louis Pasteur (STM) 034</td>
+              <td>09/07/2022 - 12/07/2022</td>
+              <td>Open</td>
+              <td><button class="w3-btn w3-blue">View Student List</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Example Course One</td>
+              <td>GNG 5400</td>
+              <td>A00</td>
+              <td>3</td>
+              <td>Mo 9:00AM - 10:30AM Th 2:00PM - 3:30PM</td>
+              <td>136 Jean-Jacques L. (VNR) 3075</td>
+              <td>09/07/2022 - 12/07/2022</td>
+              <td>Open</td>
+              <td><button class="w3-btn w3-blue">View Student List</button> </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Example Course Two</td>
+              <td>GNG 5500</td>
+              <td>B00</td>
+              <td>3</td>
+              <td>We 11:30AM -2:30PM</td>
+              <td>200 Lees (LEE) A131</td>
+              <td>09/07/2022 - 12/07/2022</td>
+              <td>Closed</td>
+              <td><button class="w3-btn w3-blue">View Student List</button> </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Example Course Three</td>
+                <td>GNG 5600</td>
+                <td>F00</td>
+                <td>3</td>
+                <td>Fr 2:30PM - 5:30PM</td>
+                <td>800 King Edward (STE) C0136</td>
+                <td>09/07/2022 - 12/07/2022</td>
+                <td>Waiting</td>
+                <td><button class="w3-btn w3-blue">View Student List</button> </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Example Course Four</td>
+                <td>GNG 5700</td>
+                <td>E00</td>
+                <td>3</td>
+                <td>Fr 2:30PM - 5:30PM</td>
+                <td>800 King Edward (STE) C0136</td>
+                <td>09/07/2022 - 12/07/2022</td>
+                <td>Waiting</td>
+                <td><button class="w3-btn w3-blue">View Student List</button> </td>
+            </tr>
+        </table>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content" style="max-width:1080px">
+    <h2 class="w3-center">Contact Admins</h2>
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+        <div class="w3-rest">
+        <input class="w3-input w3-border" name="first" type="text" placeholder="Full Name">
+        </div>
+    </div>
+
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa-solid fa-hashtag"></i></i></div>
+        <div class="w3-rest">
+        <input class="w3-input w3-border" name="last" type="text" placeholder="Employee Number">
+        </div>
+    </div>
+
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa-regular fa-envelope"></i></div>
+        <div class="w3-rest">
+        <input class="w3-input w3-border" name="email" type="text" placeholder="Email Address">
+        </div>
+    </div>
+
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+        <div class="w3-rest">
+        <input class="w3-input w3-border" name="phone" type="text" placeholder="Phone Number">
+        </div>
+    </div>
+
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+        <div class="w3-rest">
+        <input class="w3-input w3-border" name="message" type="text" placeholder="Your Message">
+        </div>
+    </div>
+
+    <button class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Send</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-8 w3-center w3-opacity">  
+    <p>Copyright 2022 All Rights Reserved by Student Portal development team</p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
