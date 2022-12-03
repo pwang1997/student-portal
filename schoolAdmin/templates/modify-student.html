@@ -82,6 +82,7 @@
               <th>Email</th>
               <th>Major</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
 
@@ -93,7 +94,8 @@
             <td>{{ student.email}}</td>
             <td>{{ student.major}}</td>
             <!-- <td> {{ student.status }}</td> -->
-            <td><button type="button">Update</button></td>
+            <td><button type="button">UPDATE</button></td>
+            <td><a href={% url 'handle_delete_student' id=student.id %}><button type="button">DELETE</button></a></td>
           </tr>
           {% endfor %}
 

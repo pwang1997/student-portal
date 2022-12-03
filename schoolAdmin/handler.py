@@ -97,4 +97,21 @@ def handle_create_professor(request):
     professor.save()
     return redirect('/school-admin/modify-professor')
     
-    
+
+def handle_delete_student(request, id):
+    student = Student.objects.get(id=id)
+    student.delete()
+
+    return redirect('/school-admin/modify-student')
+
+def handle_delete_professor(request, id):
+    professor = Professor.objects.get(id=id)
+    professor.delete()
+
+    return redirect('/school-admin/modify-professor')
+
+def handle_delete_course(request, id):
+    course = Course.objects.get(id=id)
+    course.delete()
+
+    return redirect('/school-admin/modify-course')
