@@ -6,7 +6,7 @@ from django.template import loader
 from schoolAdmin.models import SchoolAdmin
 from student.models import Student
 from course.models import Course
-from professor.models import Professor
+from professor.models import Professor, registered_courses
 
 # request handler for admin login
 def handle_admin_login(request):
@@ -55,7 +55,7 @@ def handle_create_student(request):
 def handle_create_course(request):
     if request.method != "POST":
         return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
-        
+
     # add the dictionary during initialization
     name = request.POST.get('name')
     department = request.POST.get('department')
@@ -70,6 +70,7 @@ def handle_create_course(request):
     status = request.POST.get('status')
     description = request.POST.get('description')
 
+    # create course record 
     course = Course(name=name,code=code,
                     department=department,
                     section=section,units=units,
@@ -79,6 +80,14 @@ def handle_create_course(request):
                     capacity=capacity,description=description)
 
     course.save()
+
+    # get professor id
+    professor = Professor.objects.get(email=request.POST.get('instructor'))
+
+    # create professor and course relational record
+    assigned_course = registered_courses(course_id=course.pk,
+                                                professor_id=professor.id)
+    assigned_course.save()
 
     return redirect('/school-admin/modify-course')
 
