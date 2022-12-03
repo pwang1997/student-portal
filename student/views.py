@@ -13,7 +13,7 @@ def student_home(request):
     return render(request, 'student_home.html', context)
 
 def drop(request):
-    template = loader.get_template('drop.html')
+    template = loader.get_template('drop.html') 
     return HttpResponse(template.render())
 
 def class_schdule(request):
