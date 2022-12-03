@@ -46,21 +46,29 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content" style="max-width:1080px;">
     <h1>Create New Student</h1>
-
-      
       <body>
           
-        <form action="/action_page.php">
+        <form method="POST" action="/school-admin/handle_create_student">
+            {% csrf_token %}
             <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" value="John"><br>
+            <input type="text" id="fname" name="fname"><br>
+
             <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" value="Doe"><br><br>
-            <label for="lname">Date of Birth:</label><br>
-            <input type="text" id="dob" name="dob" value="01/30/1995"><br><br>
-            <label for="lname">Student Number:</label><br>
-            <input type="text" id="number" name="number" value="1234567"><br><br>
-            <label for="lname">Faculty:</label><br>
-            <input type="text" id="Faculty" name="faculty" value="Engineering"><br><br>
+            <input type="text" id="lname" name="lname"><br><br>
+
+            <label for="lname">Email:</label><br>
+            <input type="text" id="email" name="email"><br><br>
+            
+            <label for="lname">Major:</label><br>
+            <select name="major" id="major">
+              <option value="CSI">CSI</option>
+              <option value="DTI">DTI</option>
+              <option value="GNG">GNG</option>
+              <option value="ISI">ISI</option>
+            </select>
+
+            <br>
+
             <input type="submit" value="Submit">
           </form>
         </script>

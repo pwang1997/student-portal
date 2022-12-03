@@ -42,16 +42,28 @@ def modify_course_add(request):
 def modify_student_create(request):
     return render(request, 'modify-student-create.html')
 
+def handle_create_student(request):
+    if request.method != 'POST':
+        return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
+    
+    first_name = request.POST.get('fname')
+    last_name = request.POST.get('lname')
+    email = request.POST.get('email')
+    major = request.POST.get("major")
+        
+    student_instance = Student(first_name=first_name, 
+                               last_name=last_name,
+                               email=email,
+                               password="12345",
+                               major=major)
+    student_instance.save()
+
+    return redirect('/school-admin/modify-student')
+
 def modify_professor_create(request):
     return render(request, 'modify-professor-create.html')
-def professor(request):
-    return HttpResponse("Admin Dashboard: Page Professor List")
 
-def course(request):
-    return HttpResponse("Admin Dashboard: Page Course List")
 
-def student(request):
-    return HttpResponse("Admin Dashboard: Page Student List")
 
 def add_course(request):
     if request.method == 'POST':
@@ -90,20 +102,6 @@ def delete_course(request, course_id):
     except:
         return HttpResponse (400)
 
-
-
-def add_student(request):
-    if request.method == 'POST':
-        major= request.POST["major"]
-        
-        student_instance = Student(major=major)
-        student_instance.save()
-        
-        return HttpResponse (200)
-
-    else:
-
-        return HttpResponse (400)
 
 def update_student(request, student_id):
   Update_student_instance = Student.objects.get(id=student_id)
