@@ -30,6 +30,8 @@ def handle_admin_login(request):
     
     return redirect('/school-admin/') if success else HttpResponseBadRequest("wrong admin", status=400)
 
+########################################CREATE##############################################
+
 # request handler for creating student
 def handle_create_student(request):
     if request.method != 'POST':
@@ -96,7 +98,9 @@ def handle_create_professor(request):
                           position=position, department=department)
     professor.save()
     return redirect('/school-admin/modify-professor')
-    
+
+########################################DELETE##############################################
+
 
 def handle_delete_student(request, id):
     student = Student.objects.get(id=id)
@@ -113,5 +117,58 @@ def handle_delete_professor(request, id):
 def handle_delete_course(request, id):
     course = Course.objects.get(id=id)
     course.delete()
+
+    return redirect('/school-admin/modify-course')
+
+########################################UPDATE##############################################
+def handle_update_student(request, id):
+    if request.method != 'POST':
+        return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
+    
+    student = Student.objects.get(id=id)
+
+    student.first_name = request.POST.get('fname')
+    student.last_name = request.POST.get('lname')
+    student.email = request.POST.get('email')
+    student.major = request.POST.get("major")
+    student.save()
+
+    return redirect('/school-admin/modify-student')
+
+def handle_update_professor(request, id):
+    if request.method != 'POST':
+        return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
+    
+    professor = Professor.objects.get(id=id)
+
+    professor.first_name = request.POST.get('fname')
+    professor.last_name = request.POST.get('lname')
+    professor.email = request.POST.get('email')
+    professor.position = request.POST.get('position')
+    professor.department = request.POST.get("department")
+    professor.save()
+
+    return redirect('/school-admin/modify-professor')
+
+def handle_update_course(request, id):
+    if request.method != 'POST':
+        return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
+    
+    course = Course.objects.get(id=id)
+
+    course.name = request.POST.get('name')
+    course.department = request.POST.get('department')
+    course.code = request.POST.get('code')
+    course.section = request.POST.get("section")
+    course.units = request.POST.get("units")
+    course.course_dates = request.POST.get("course_dates")
+    course.timetable = request.POST.get("timetable")
+    course.location = request.POST.get("location")
+    course.instructor = request.POST.get("instructor")
+    course.capacity = request.POST.get("capacity")
+    course.status = request.POST.get("status")
+    course.description = request.POST.get("description")
+
+    course.save()
 
     return redirect('/school-admin/modify-course')
