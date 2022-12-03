@@ -19,6 +19,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </style>
 </head>
 <body>
+
 <!-- Menubar -->
 <div class="w3-top">
   <div class="w3-bar w3-2021-desert-mist w3-card w3-left-align w3-large">
@@ -42,100 +43,63 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
 
 <!-- First Grid -->
-
 <div class="w3-row-padding w3-padding-64 w3-container">
   <div class="w3-content" style="max-width:1080px;">
-    <h1>Professor Portal</h1>
-    <form action="http://localhost:8000/school-admin/modify-professor/create-professor/">
-      <input type="submit" value="Add New Faculty Member" />
+    <h1>Update Course</h1>
+    <form method="POST" action={% url 'handle_update_course' id=course.id %}>
+      {% csrf_token %}
+      <label for="name">Course Name:</label><br>
+      <input type="text" id="name" name="name" value={{ course.name }} /><br>
+
+      <label for="department">Department:</label><br>
+      <select name="department" id="department">
+        {%  for department in departments %}
+          <option value={{ department }} {% if department == course.department %}selected{% endif %}>{{ department }}</option>
+        {% endfor %}
+      </select><br>
+
+      <label for="code">Code:</label><br>
+      <input type="text" id="code" name="code" value={{ course.code }} /><br>
+
+      <label for="section">Section:</label><br>
+      <input type="text" id="section" name="section" value={{ course.code }} /><br>
+      
+      <label for="units">Units:</label><br>
+      <select name="units" id="units">
+        {% for unit in units %}
+          <option value={{ unit }} {% if unit == course.units %}selected{% endif %}>{{unit}}</option>
+        {% endfor %}
+      </select><br>
+
+      <label for="course_dates">Course Dates:</label><br>
+      <input type="text" id="course_dates" name="course_dates" value={{ course.course_dates }} /><br>
+
+      <label for="timetable">Time Table:</label><br>
+      <input type="time" id="timetable" name="timetable" min="08:00" max="20:00" value={{ course.timetable }} /><br>
+      
+      <label for="location">Location:</label><br>
+      <input type="text" id="location" name="location" value={{ course.location }} /><br>
+
+      <label for="instructor">Instructor:</label><br>
+      <input type="text" id="instructor" name="instructor" value={{ course.instructor }} /><br>
+
+      <label for="capacity">Capacity:</label><br>
+      <input type="text" id="capacity" name="capacity" value={{ course.capacity }} /><br>
+
+      <label for="status">Status:</label><br>
+      <select name="status" id="status">
+        {% for status in statuses %}
+          <option value={{ status }} {% if status == course.status %}selected{% endif %}>{{status}}</option>
+        {% endfor %}
+      </select><br>
+
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description" rows="4" cols="50" >{{ course.description }}</textarea><br>
+
+      <br>
+
+      <input type="submit" value="Submit">
     </form>
-  
-    
-
-    <!-- <div class="w3-dropdown-hover w3-padding-16">
-        <select class="w3-select w3-border" name="option">
-            <option value="" disabled selected>Select a term</option>
-            <option value="1">2022 Summer</option>
-            <option value="2">2022 Fall</option>
-            <option value="3">2023 Winter</option>
-        </select>
-    </div>
-    
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Course Code</option>
-          <option value="ELG">ELG</option>
-          <option value="CSI">CSI</option>
-          <option value="GNG">GNG</option>
-      </select>
-    </div>
-    
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Course Code</option>
-          <option value="1">5000</option>
-          <option value="2">5100</option>
-          <option value="3">5300</option>
-      </select>
-    </div>
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Section</option>
-          <option value="1">A00</option>
-          <option value="2">B00</option>
-          <option value="3">C00</option>
-      </select>
-    </div>
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Starting Time</option>
-          <option value="1">8:30</option>
-          <option value="2">11:30</option>
-          <option value="3">14:30</option>
-      </select>
-    </div>
-    <div class="w3-dropdown-hover w3-padding-16">
-      <select class="w3-select w3-border" name="option">
-          <option value="" disabled selected>Location</option>
-          <option value="1">CRX</option>
-          <option value="2">FTX</option>
-          <option value="3">SIT</option>
-      </select>
-    </div>
-    <button type="button">Filter Course</button> -->
-    <div class="w3-responsive">
-        <table class="w3-table-all w3-hoverable">
-            <thead>
-                <tr class="w3-brown">
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Position</th>
-                <th></th>
-                <th></th>
-                </tr>
-            </thead>
-              {% for professor in professors %}
-              <tr>
-                <th>{{professor.first_name}}</th>
-                <th>{{professor.last_name}}</th>
-                <th>{{professor.email}}</th>
-                <th>{{professor.department}}</th>
-                <th>{{professor.position}}</th>
-                <th><a href={% url 'professor_update' id=professor.id %}><button type="button">UPDATE</button></a></th>
-                <td><a href={% url 'handle_delete_professor' id=professor.id %}><button type="button">DELETE</button></a></td>
-                <!-- <th onclick="location.href='http://localhost:8000/school-admin/modify-professor/nlp/'"><u>Modify</u> </th> -->
-              </tr>
-              {% endfor %}
-
-        </table>
-    </div>
-<!--
-    <div class="w3-third w3-center">
-      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
-    </div>
-    -->
   </div>
 </div>
 
@@ -153,6 +117,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div class="w3-row w3-section">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa-solid fa-hashtag"></i></i></div>
         <div class="w3-rest">
+
         <input class="w3-input w3-border" name="last" type="text" placeholder="Employee ID">
         </div>
     </div>
@@ -163,12 +128,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         <input class="w3-input w3-border" name="email" type="text" placeholder="Employee email address">
         </div>
     </div>
-
-
     <div class="w3-row w3-section">
         <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
         <div class="w3-rest">
         <input class="w3-input w3-border" name="message" type="text" placeholder="Explain your issue in detail">
+
         </div>
     </div>
 
@@ -192,6 +156,6 @@ function myFunction() {
   }
 }
 </script>
+
 </body>
 </html>
-

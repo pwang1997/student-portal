@@ -47,72 +47,54 @@ def modify_student_nlp(request):
 def modify_professor_nlp(request):
     return render(request, 'modify-professor-nlp.html')
 
+# admin/add course
 def modify_course_add(request):
     return render(request, 'modify-course-add.html')
 
-
+# admin/add student
 def modify_student_create(request):
     return render(request, 'modify-student-create.html')
 
+# admin/add professor
 def modify_professor_create(request):
     return render(request, 'modify-professor-create.html')
 
-
-def update_course(request, course_id):
-  Update_course_instance = Course.objects.get(id=course_id)
-  template = loader.get_template('update.html')
+# admin/update course
+def course_update(request, id):
+  course = Course.objects.get(id=id)
+  departments = ["CSI", "DTI", "GNG", "ISI"]
+  units = ["3", "6"]
+  statuses = ["Active", "Inactive"]
   context = {
-    'Update_course_instance': Update_course_instance,
+    'course': course,
+    'departments' : departments,
+    'units' : units,
+    'statuses' : statuses
   }
-  return HttpResponse(template.render(context, request))
+  return render(request, 'course-update.html', context)
   
-
-def delete_course(request, course_id):
-    course_delete_instance = Course.objects.get(id=course_id)
-    try:
-        course_delete_instance.delete()
-        return HttpResponse (200)
-
-    except:
-        return HttpResponse (400)
-
-
-def update_student(request, student_id):
-  Update_student_instance = Student.objects.get(id=student_id)
-  template = loader.get_template('update.html')
+# admnin/update student
+def student_update(request, id):
+  student = Student.objects.get(id=id)
+  majors = ["CSI", "DTI", "GNG", "ISI"]
   context = {
-    'Update_student_instance': Update_student_instance,
+    'student': student,
+    'majors' : majors
   }
-  return HttpResponse(template.render(context, request))
+  return render(request, 'student-update.html', context)
 
+# admin/update professor
+def professor_update(request, id):
+  professor = Professor.objects.get(id=id)
+  positions = ["assistant-professor", "associate-professor", "full-professor"]
+  departments = ["Engineering", "Science", "Art", "Business"]
 
-def delete_student(request, student_id):
-    student_delete_instance = Student.objects.get(id=student_id)
-    try:
-        student_delete_instance.delete()
-        return HttpResponse (200)
-
-    except:
-        return HttpResponse (400)
-
-
-def update_professor(request, professor_id):
-  Update_professor_instance = Professor.objects.get(id=professor_id)
-  template = loader.get_template('update.html')
   context = {
-    'Update_professor_instance': Update_professor_instance,
+    'professor': professor,
+    "positions" : positions,
+    "departments" : departments
   }
-  return HttpResponse(template.render(context, request))
-  
-
-def delete_professor(request, professor_id):
-    professor_delete_instance = Professor.objects.get(id=professor_id)
-    try:
-        professor_delete_instance.delete()
-        return HttpResponse (200)
-
-    except:
-        return HttpResponse (400)
+  return render(request, 'professor-update.html', context)
 
 def login(request):
     return render(request, './login.html')
