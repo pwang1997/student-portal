@@ -124,7 +124,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                 <th>{{professor.department}}</th>
                 <th>{{professor.position}}</th>
                 <th><button type="button">UPDATE</button></th>
-                <th><button type="button">DELETE</button></th>
+                <td><a href={% url 'handle_delete_professor' id=professor.id %}><button type="button">DELETE</button></a></td>
                 <!-- <th onclick="location.href='http://localhost:8000/school-admin/modify-professor/nlp/'"><u>Modify</u> </th> -->
               </tr>
               {% endfor %}

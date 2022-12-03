@@ -15,6 +15,7 @@ urlpatterns = [
     
     # student request handlers
     path('handle_create_student', handler.handle_create_student, name='handle_create_student'),
+    path('handle_delete_student/<int:id>', handler.handle_delete_student, name='handle_delete_student'),
     
     #######################################PROFESSOR#########################################################
     
@@ -25,6 +26,7 @@ urlpatterns = [
     
     # professor request handlers
     path('handle_create_professor', handler.handle_create_professor, name='handle_create_professor'),
+    path('handle_delete_professor/<int:id>', handler.handle_delete_professor, name='handle_delete_professor'),
     
     #######################################COURSE#########################################################
     
@@ -35,4 +37,6 @@ urlpatterns = [
     
     # course request handlers
     path('handle_create_course', handler.handle_create_course, name='handle_create_course'),
+    path('handle_delete_course/<int:id>', handler.handle_delete_course, name='handle_delete_course'),
+
 ]
