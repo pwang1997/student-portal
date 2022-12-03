@@ -86,6 +86,7 @@
                         <thead>
                             <tr class="w3-brown">
                                 <th>Name</th>
+                                <th>Department</th>
                                 <th>Code</th>
                                 <th>Section</th>
                                 <th>Units</th>
@@ -100,6 +101,7 @@
 
                         <tr>
                             <td><a href={% url 'detail_view' id=result.id %}>{{result.name}}</a></td>
+                            <td>{{result.department}}</td>
                             <td>{{result.code}}</td>
                             <td>{{result.section}}</td>
                             <td>{{result.units}}</td>

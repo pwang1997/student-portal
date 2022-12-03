@@ -36,6 +36,7 @@ def handle_create_course(request):
         
     # add the dictionary during initialization
     name = request.POST.get('name')
+    department = request.POST.get('department')
     code = request.POST.get('code')
     section = request.POST.get('section')
     units = request.POST.get('units')
@@ -48,6 +49,7 @@ def handle_create_course(request):
     description = request.POST.get('description')
 
     course = Course(name=name,code=code,
+                    department=department,
                     section=section,units=units,
                     timetable=timetable,
                     location=location,instructor=instructor,
