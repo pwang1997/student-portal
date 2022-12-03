@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Student List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<style>
+html {
+  scroll-behavior: smooth;
+ }
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+header{
+    width: 100%;
+    background-image: url("{% static '/images/class.png' %}");
+    background-color: #EEEEEE;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size:cover;
+    opacity: 0.75;
+}
+</style>
+</head>
+<body>
+<div class="flex-wrapper">
+<!-- Menubar -->
+<div class="w3-top">
+  <div class="w3-bar w3-2021-desert-mist w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-2021-desert-mist" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="http://127.0.0.1:8000/professor/" class="w3-bar-item w3-button w3-padding-large w3-brown">Home</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
+      Log Out  <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </div>
+
+  <!-- Menubar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Add Classes</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large"><i class="fa-solid fa-right-from-bracket"></i>Log Out</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:300px 16px">
+    
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-32 w3-container">
+    <div class="w3-content" style="max-width:1080px">
+      <h1>GNG 5300 Full Stack Cloud Devlopment</h1>
+    </div>
+</div>
+
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content" style="max-width:1080px;">
+    <h2>Student List</h2>
+    <div class="w3-responsive">
+        <table class="w3-table-all w3-hoverable">
+            <thead>
+                <tr class="w3-brown">
+                <th>Student Name</th>
+                <th>Student Number</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Grade</th>
+                <th>Edit Grade</th>
+                </tr>
+            </thead>
+            <tr>
+              <td>Xiong Gu</td>
+              <td>300259433</td>
+              <td>example@email.com</td>
+              <td>Enrolled</td>
+              <td>100</td>
+              <td><button class="w3-btn w3-blue">Edit</button></td>
+            </tr>
+            <tr>
+              <td>Student One</td>
+              <td>3000000000</td>
+              <td>example@email.com</td>
+              <td>Enrolled</td>
+              <td>0</td>
+              <td><button class="w3-btn w3-blue">Edit</button> </td>
+            </tr>
+            <tr>
+              <td>Student Two</td>
+              <td>3000000000</td>
+              <td>example@email.com</td>
+              <td>Enrolled</td>
+              <td>0</td>
+              <td><button class="w3-btn w3-blue">Edit</button> </td>
+            </tr>
+            <tr>
+                <td>Student Three</td>
+                <td>3000000000</td>
+                <td>example@email.com</td>
+                <td>Enrolled</td>
+                <td>0</td>
+                <td><button class="w3-btn w3-blue">Edit</button> </td>
+            </tr>
+            <tr>
+                <td>Student Four</td>
+                <td>3000000000</td>
+                <td>example@email.com</td>
+                <td>Waiting List</td>
+                <td>0</td>
+                <td><button class="w3-btn w3-blue">Edit</button> </td>
+            </tr>
+        </table>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-8 w3-center w3-light-grey w3-opacity">  
+    <p>Copyright 2022 All Rights Reserved by Student Portal development team</p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+</div>
+</body>
+</html>

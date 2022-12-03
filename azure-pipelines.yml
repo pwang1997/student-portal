@@ -1,0 +1,16 @@
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- main
+
+stages:
+- stage:
+  jobs:
+  - job:
+    displayName: pipeline_check
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - script: echo "test"
+      displayName: 'YAML Checks'

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Class Search</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<style>
+html {
+  scroll-behavior: smooth;
+ }
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+
+
+</style>
+</head>
+<body>
+
+<!-- Menubar -->
+<div class="w3-top">
+  <div class="w3-bar w3-2021-desert-mist w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="http://127.0.0.1:8000/student/" class="w3-bar-item w3-button w3-padding-large w3-hover-brown">Home</a>
+    <a href="http://127.0.0.1:8000/student/class_schdule/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">My Class Schedule</a>
+    <a href="http://127.0.0.1:8000/student/search/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-brown">Search Classes</a>
+    <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Add Classes</a>
+    <a href="http://127.0.0.1:8000/student/drop/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-brown">Drop Classes</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
+      Log Out  <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </div>
+
+  <!-- Menubar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="http://127.0.0.1:8000/student/class_schdule/" class="w3-bar-item w3-button w3-padding-large">My Class Schedule</a>
+    <a href="http://127.0.0.1:8000/student/search/" class="w3-bar-item w3-button w3-padding-large">Search Classes</a>
+    <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-padding-large">Add Classes</a>
+    <a href="http://127.0.0.1:8000/student/drop/" class="w3-bar-item w3-button w3-padding-large">Drop Classes</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large"><i class="fa-solid fa-right-from-bracket"></i>Log Out</a>
+  </div>
+</div>
+
+
+<script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+</script>
+
+</body>
+</html>

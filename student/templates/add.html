@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Add Classes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<style>
+html {
+  scroll-behavior: smooth;
+ }
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+
+
+</style>
+</head>
+<body>
+
+<!-- Menubar -->
+<div class="w3-top">
+  <div class="w3-bar w3-2021-desert-mist w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-2021-desert-mist" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="http://127.0.0.1:8000/student/" class="w3-bar-item w3-button w3-padding-large w3-hover-brown">Home</a>
+    <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-brown">Add Classes</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
+      Log Out  <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
+  </div>
+
+  <!-- Menubar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="http://127.0.0.1:8000/student/class_schdule/" class="w3-bar-item w3-button w3-padding-large">My Class Schedule</a>
+    <a href="http://127.0.0.1:8000/student/search/" class="w3-bar-item w3-button w3-padding-large">Search Classes</a>
+    <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-padding-large">Add Classes</a>
+    <a href="http://127.0.0.1:8000/student/drop/" class="w3-bar-item w3-button w3-padding-large">Drop Classes</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large"><i class="fa-solid fa-right-from-bracket"></i>Log Out</a>
+  </div>
+</div>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content" style="max-width:1080px;">
+      <h2>Search for classes to add</h2>
+      <div class="w3-dropdown-hover w3-padding-16">
+          <select class="w3-select w3-border" name="term">
+              <option value="" disabled selected>Select a term</option>
+              <option value="1">2022 Summer</option>
+              <option value="2">2022 Fall</option>
+              <option value="3">2023 Winter</option>
+          </select>
+      </div>
+      
+      <div class="w3-container w3-padding-16 w3-border">
+        <h5>Select at least 2 search criteria below and click search to view your search results.</h5>
+        <div class="w3-display-container">
+            <div class = select_box>
+                <label for="level" style="display: inline-block; width:100px; text-align: right;">Course level:</label>
+                <select class="w3-select w3-border" style="width:150px; padding: 8px;" name="level" id="level">
+                    <option value="" disabled selected>-----------</option>
+                    <option value="undergraduate">Undergraduate Studies</option>
+                    <option value="graduate">Graduate Studies</option>
+                </select>
+            </div>
+            <br>
+            <div class = select_box>
+                <label for="subject" style="display: inline-block; width:100px; text-align: right;">Subject:</label>
+                <select class="w3-select w3-border" style="width:150px; padding: 8px;" name="subject" id="subject">
+                    <option value="" disabled selected>-----------</option>
+                    <option value="GNG">GNG</option>
+                    <option value="MCG">MCG</option>
+                    <option value="ELG">ELG</option>
+                    <option value="BMG">BMG</option>
+                    <option value="DTI">DTI</option>
+                </select>
+            </div>
+            <br>
+            <div class = select_box>
+                <label for="units" style="display: inline-block; width:100px; text-align: right;">Units:</label>
+                <select class="w3-select w3-border" style="width:150px;  padding: 8px;" name="units" id="units">
+                    <option value="" disabled selected>-----------</option>
+                    <option value="0">0</option>
+                    <option value="3">3</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+            <br><br>
+            <input type="submit" class="w3-btn w3-blue w3-display-bottommiddle" value="Search" >
+        </div>
+      </div>
+      
+    </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="w3-content" style="max-width:1080px;">
+      <div class="w3-panel w3-leftbar w3-pale-yellow w3-border-yellow">
+         <h5>Below are the courses based on your search criteria, please select from them.</h5>
+      </div>  
+      <div class="w3-responsive w3-padding-16">
+            <table class="w3-table-all  w3-hoverable">
+                <thead>
+                    <tr class="w3-brown">
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Course Code</th>
+                    <th>Section</th>
+                    <th>Units</th>
+                    <th>Days&Time</th>
+                    <th>Room</th>
+                    <th>Instructor</th>
+                    <th>Meeting Dates</th>
+                    <th>Status</th>
+                    <th>Available Seats</th>
+                    <th>Action</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td>Full Stack Cloud Development</td>
+                    <td>GNG 5300</td>
+                    <td>C00</td>
+                    <td>3</td>
+                    <td>Tu 5:30PM - 8:20PM</td>
+                    <td>150 Louis Pasteur (STM) 034</td>
+                    <td>Masoud Dorrikhteh</td>
+                    <td>09/07/2022 - 12/07/2022</td>
+                    <td>Closed</td>
+                    <td>0</td>
+                    <td> </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Example Course One</td>
+                    <td>GNG 5400</td>
+                    <td>A00</td>
+                    <td>3</td>
+                    <td>Mo 9:00AM - 10:30AM Th 2:00PM - 3:30PM</td>
+                    <td>136 Jean-Jacques L. (VNR) 3075</td>
+                    <td>Professor X</td>
+                    <td>09/07/2022 - 12/07/2022</td>
+                    <td>Open</td>
+                    <td>10</td>
+                    <td><button class="w3-btn w3-blue">Select</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Example Course Two</td>
+                    <td>GNG 5500</td>
+                    <td>B00</td>
+                    <td>3</td>
+                    <td>We 11:30AM -2:30PM</td>
+                    <td>200 Lees (LEE) A131</td>
+                    <td>Professor Y</td>
+                    <td>09/07/2022 - 12/07/2022</td>
+                    <td>Wait List</td>
+                    <td>0</td>
+                    <td> </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Example Course Three</td>
+                    <td>GNG 5600</td>
+                    <td>F00</td>
+                    <td>3</td>
+                    <td>Fr 2:30PM - 5:30PM</td>
+                    <td>800 King Edward (STE) C0136</td>
+                    <td>Professor Z</td>
+                    <td>09/07/2022 - 12/07/2022</td>
+                    <td>Open</td>
+                    <td>5</td>
+                    <td><button class="w3-btn w3-blue">Select</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Example Course Four</td>
+                    <td>GNG 5700</td>
+                    <td>E00</td>
+                    <td>3</td>
+                    <td>Fr 2:30PM - 5:30PM</td>
+                    <td>800 King Edward (STE) C0136</td>
+                    <td>Professor Z</td>
+                    <td>09/07/2022 - 12/07/2022</td>
+                    <td>Wait List</td>
+                    <td>0</td>
+                    <td> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-8 w3-center w3-opacity">  
+    <p>Copyright 2022 All Rights Reserved by Student Portal development team</p>
+</footer>
+
+<script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+</script>
+
+</body>
+</html>

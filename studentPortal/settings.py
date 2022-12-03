@@ -10,11 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATICFILES_DIR = [os.path.join(BASE_DIR, 'static'),]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-m(u8j^t+a_wbuwphr)nu0ym@#lgk617o9))qvh_44k2q!eqs11
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,7 +42,8 @@ INSTALLED_APPS = [
     'course',
     'student',
     'professor',
-    'schoolAdmin'
+    'schoolAdmin',
+    'studentPortal'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +61,9 @@ ROOT_URLCONF = 'studentPortal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+
+        # 'DIRS': [os.path.join(BASE_DIR, 'student', 'templates')],
+         'DIRS': [os.path.join(BASE_DIR, 'schoolAdmin', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,6 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'studentPortal.wsgi.application'
+
 
 
 # Database
