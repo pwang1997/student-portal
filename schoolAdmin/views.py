@@ -49,7 +49,10 @@ def modify_professor_nlp(request):
 
 # admin/add course
 def modify_course_add(request):
-    return render(request, 'modify-course-add.html')
+  professors = Professor.objects.all()
+  context ={}
+  context["professors"] = Professor.objects.all()
+  return render(request, 'modify-course-add.html', context)
 
 # admin/add student
 def modify_student_create(request):
@@ -65,11 +68,14 @@ def course_update(request, id):
   departments = ["CSI", "DTI", "GNG", "ISI"]
   units = ["3", "6"]
   statuses = ["Active", "Inactive"]
+  professors = Professor.objects.all()
+
   context = {
     'course': course,
     'departments' : departments,
     'units' : units,
-    'statuses' : statuses
+    'statuses' : statuses,
+    'professors' : professors
   }
   return render(request, 'course-update.html', context)
   
