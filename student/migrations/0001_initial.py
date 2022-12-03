@@ -12,14 +12,24 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='SchoolAdmin',
+            name='registered_students_in_a_course',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('course_id', models.IntegerField()),
+                ('professor_id', models.IntegerField()),
+                ('student_id', models.IntegerField()),
+                ('grade', models.CharField(max_length=50)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Student',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('first_name', models.CharField(max_length=50)),
                 ('last_name', models.CharField(max_length=50)),
                 ('password', models.CharField(max_length=255)),
                 ('email', models.EmailField(max_length=200)),
-                ('token', models.CharField(max_length=255)),
+                ('major', models.CharField(max_length=255)),
             ],
             options={
                 'abstract': False,
