@@ -18,7 +18,11 @@ def admin_login(request):
     return render(request, 'login.html')
 
 def modify_student(request):
-    return render(request, 'modify-student.html')
+    context ={}
+    # add the dictionary during initialization
+    context["students"] = Student.objects.all()
+    
+    return render(request, 'modify-student.html', context)
 
 def modify_course(request):
     return render(request, 'modify-course.html')
