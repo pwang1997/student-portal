@@ -107,91 +107,35 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             <table class="w3-table-all  w3-hoverable">
                 <thead>
                     <tr class="w3-brown">
-                    <th>ID</th>
-                    <th>Course Name</th>
-                    <th>Course Code</th>
-                    <th>Section</th>
-                    <th>Units</th>
-                    <th>Days&Time</th>
-                    <th>Room</th>
-                    <th>Instructor</th>
-                    <th>Meeting Dates</th>
-                    <th>Status</th>
-                    <th>Available Seats</th>
-                    <th>Action</th>
+                        <th>Course Name</th>
+                        <th>Subject</th>
+                        <th>Code</th>
+                        <th>Section</th>
+                        <th>Units</th>
+                        <th>Timetable</th>
+                        <th>Location</th>
+                        <th>Instructor</th>
+                        <th>Course Dates</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
+                {% for course in courses %}
                 <tr>
-                    <td>1</td>
-                    <td>Full Stack Cloud Development</td>
-                    <td>GNG 5300</td>
-                    <td>C00</td>
-                    <td>3</td>
-                    <td>Tu 5:30PM - 8:20PM</td>
-                    <td>150 Louis Pasteur (STM) 034</td>
-                    <td>Masoud Dorrikhteh</td>
-                    <td>09/07/2022 - 12/07/2022</td>
-                    <td>Closed</td>
-                    <td>0</td>
-                    <td> </td>
+                    <td><a href={% url 'detail_view' id=course.id %}>{{course.name}}</a></td>
+                    <td>{{course.department}}</td>
+                    <td>{{course.code}}</td>
+                    <td>{{course.section}}</td>
+                    <td>{{course.units}}</td>
+                    <td>{{course.timetable}}</td>
+                    <td>{{course.location}}</td>
+                    <td>{{course.instructor}}</td>
+                    <td>{{course.course_dates}}</td>
+                    <td>{{course.status}}</td>
+                    <td><a href={% url 'handle_enroll_course' id=course.id %}><button type="button" class="w3-btn w3-blue">Enroll</button></a></td>
                 </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>Example Course One</td>
-                    <td>GNG 5400</td>
-                    <td>A00</td>
-                    <td>3</td>
-                    <td>Mo 9:00AM - 10:30AM Th 2:00PM - 3:30PM</td>
-                    <td>136 Jean-Jacques L. (VNR) 3075</td>
-                    <td>Professor X</td>
-                    <td>09/07/2022 - 12/07/2022</td>
-                    <td>Open</td>
-                    <td>10</td>
-                    <td><button class="w3-btn w3-blue">Select</button></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Example Course Two</td>
-                    <td>GNG 5500</td>
-                    <td>B00</td>
-                    <td>3</td>
-                    <td>We 11:30AM -2:30PM</td>
-                    <td>200 Lees (LEE) A131</td>
-                    <td>Professor Y</td>
-                    <td>09/07/2022 - 12/07/2022</td>
-                    <td>Wait List</td>
-                    <td>0</td>
-                    <td> </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Example Course Three</td>
-                    <td>GNG 5600</td>
-                    <td>F00</td>
-                    <td>3</td>
-                    <td>Fr 2:30PM - 5:30PM</td>
-                    <td>800 King Edward (STE) C0136</td>
-                    <td>Professor Z</td>
-                    <td>09/07/2022 - 12/07/2022</td>
-                    <td>Open</td>
-                    <td>5</td>
-                    <td><button class="w3-btn w3-blue">Select</button></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Example Course Four</td>
-                    <td>GNG 5700</td>
-                    <td>E00</td>
-                    <td>3</td>
-                    <td>Fr 2:30PM - 5:30PM</td>
-                    <td>800 King Edward (STE) C0136</td>
-                    <td>Professor Z</td>
-                    <td>09/07/2022 - 12/07/2022</td>
-                    <td>Wait List</td>
-                    <td>0</td>
-                    <td> </td>
-                </tr>
+                {% endfor %}
+                
             </table>
         </div>
     </div>

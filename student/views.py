@@ -26,6 +26,8 @@ def student_home(request):
 
 
 def add(request):
-    template = loader.get_template('add.html')
-    return HttpResponse(template.render())
+    context ={}
+    context["courses"] =Course.objects.all()
+
+    return render(request, "add.html", context)
 
