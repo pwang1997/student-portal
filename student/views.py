@@ -34,9 +34,21 @@ def add(request):
     # template = loader.get_template('add.html')
     # return HttpResponse(template.render())
 
-    context ={}
-    context["courses"] =Course.objects.all()
-    return render(request, "add.html", context)
+    # context ={}
+    # context["courses"] =Course.objects.all()
+    # return render(request, "add.html", context)
+
+
+    # from course: def search
+
+    if  request.method == "POST":
+        query_name = request.POST.get('name', None)
+        if query_name:
+            results = Course.objects.filter(name__contains=query_name)
+            return render(request, 'add.html', {"results":results})
+        
+    return render(request, 'add.html')
+
 
 def search(request):
     # template = loader.get_template('search.html')
@@ -50,7 +62,7 @@ def search(request):
             results = Course.objects.filter(name__contains=query_name)
             return render(request, 'search.html', {"results":results})
         
-    return render(request, 'search.html')
+    return render(request, 'add.html')
 
 def home(request):
     template = loader.get_template('home.html')

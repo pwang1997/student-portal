@@ -44,67 +44,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 </div>
 
 <!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-    <div class="w3-content" style="max-width:1080px;">
-      <h2>Search for classes to add</h2>
-      <div class="w3-dropdown-hover w3-padding-16">
-          <select class="w3-select w3-border" name="term">
-              <option value="" disabled selected>Select a term</option>
-              <option value="1">2022 Summer</option>
-              <option value="2">2022 Fall</option>
-              <option value="3">2023 Winter</option>
-          </select>
-      </div>
-      
-      <div class="w3-container w3-padding-16 w3-border">
-        <h5>Select at least 2 search criteria below and click search to view your search results.</h5>
-        <div class="w3-display-container">
-            <div class = select_box>
-                <label for="level" style="display: inline-block; width:100px; text-align: right;">Course level:</label>
-                <select class="w3-select w3-border" style="width:150px; padding: 8px;" name="level" id="level">
-                    <option value="" disabled selected>-----------</option>
-                    <option value="undergraduate">Undergraduate Studies</option>
-                    <option value="graduate">Graduate Studies</option>
-                </select>
-            </div>
-            <br>
-            <div class = select_box>
-                <label for="subject" style="display: inline-block; width:100px; text-align: right;">Subject:</label>
-                <select class="w3-select w3-border" style="width:150px; padding: 8px;" name="subject" id="subject">
-                    <option value="" disabled selected>-----------</option>
-                    <option value="GNG">GNG</option>
-                    <option value="MCG">MCG</option>
-                    <option value="ELG">ELG</option>
-                    <option value="BMG">BMG</option>
-                    <option value="DTI">NA</option>
-                </select>
-            </div>
-            <br>
-            <div class = select_box>
-                <label for="units" style="display: inline-block; width:100px; text-align: right;">Units:</label>
-                <select class="w3-select w3-border" style="width:150px;  padding: 8px;" name="units" id="units">
-                    <option value="" disabled selected>-----------</option>
-                    <option value="0">0</option>
-                    <option value="3">3</option>
-                    <option value="6">6</option>
-                </select>
-            </div>
-            <br><br>
-            <input type="submit" class="w3-btn w3-blue w3-display-bottommiddle" value="Search" >
-        </div>
-      </div>
-      
 
-
-    </div>
-</div>
 
 <!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-    <div class="w3-content" style="max-width:1080px;">
-      <div class="w3-panel w3-leftbar w3-pale-yellow w3-border-yellow">
-         <h5>Below are the courses based on your search criteria, please select from them.</h5>
-      </div>  
+
+
       <!-- <div class="w3-responsive w3-padding-16">
             <table class="w3-table-all  w3-hoverable">
                 <thead>
@@ -147,7 +91,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
             </table>
         </div> -->
 
-        <div class="w3-responsive">
+
+        <!-- cancel to re-active -->
+
+        <!-- <div class="w3-responsive">
             <table class="w3-table-all w3-hoverable">
                 <thead>
                     <tr class="w3-brown">
@@ -186,8 +133,59 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
                     </tr>
                   {% endfor %}
             </table>
-        </div>
-        
+        </div> -->
+
+      <!-- cancel to re-active --> 
+
+
+      <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content" style="max-width:1080px;">
+            <h1>Search result</h1>
+            <div class="w3-dropdown-hover w3-padding-16">
+                <form action="{% url 'add' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name">
+                    <input type="submit" name="submit" value="Search">
+                </form>
+
+                {% for result in results %}
+
+                <p>{{result.name}}</p>
+                <div class="w3-responsive">
+                    <table class="w3-table-all w3-hoverable">
+                        <thead>
+                            <tr class="w3-brown">
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Code</th>
+                                <th>Section</th>
+                                <th>Units</th>
+                                <th>Timetable</th>
+                                <th>Location</th>
+                                <th>Instructor</th>
+                                <th>Course Dates</th>
+                                <th>Status</th>
+                                <th>Capacity</th>
+                            </tr>
+                        </thead>
+
+                        <tr>
+                            <td><a href={% url 'detail_view' id=result.id %}>{{result.name}}</a></td>
+                            <td>{{result.department}}</td>
+                            <td>{{result.code}}</td>
+                            <td>{{result.section}}</td>
+                            <td>{{result.units}}</td>
+                            <td>{{result.timetable}}</td>
+                            <td>{{result.location}}</td>
+                            <td>{{result.instructor}}</td>
+                            <td>{{result.course_dates}}</td>
+                            <td>{{result.status}}</td>
+                            <td>{{result.capacity}}</td>
+                        </tr>
+                    </table>
+                </div>
+                {% endfor %}
+
     </div>
 </div>
 
@@ -196,17 +194,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <p>Copyright 2022 All Rights Reserved by Student Portal development team</p>
 </footer>
 
-<script>
-    // Used to toggle the menu on small screens when clicking on the menu button
-    function myFunction() {
-      var x = document.getElementById("navDemo");
-      if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-      } else { 
-        x.className = x.className.replace(" w3-show", "");
-      }
-    }
-</script>
+
 
 </body>
 </html>
