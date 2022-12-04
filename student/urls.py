@@ -7,5 +7,6 @@ urlpatterns = [
     #path('drop/', views.drop, name='course'), # entrolled/ wait-list course list with a button for withdrawal
     #path('class_schdule/', views.class_schdule, name='class_schdule'), 
     path('add/', views.add, name='add'),
-    path('handle_enroll_course/<int:id>', handler.handle_enroll_course, name='handle_enroll_course')
+    path('handle_enroll_course/<int:id>', handler.handle_enroll_course, name='handle_enroll_course'),
+    path('handle_drop_course/<int:id>', handler.handle_drop_course, name='handle_drop_course')
 ]

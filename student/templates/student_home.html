@@ -97,7 +97,7 @@ header{
                 <td>{{data.0.instructor}}</td>
                 <td>{{data.0.course_dates}}</td>
                 <td>{{data.1}}</td>
-                <td><button class="w3-btn w3-blue">Drop</button></td>
+                <td><a href={% url 'handle_drop_course' id=data.0.id %}><button class="w3-btn w3-blue">Drop</button></a></td>
               </tr>
               {% endfor %}
         </table>
