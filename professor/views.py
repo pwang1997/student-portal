@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import loader
 from professor.models import registered_courses
-from student.models import registered_students_in_a_course
+from student.models import Enrolled_courses_of_a_student
 
 # Create your views here.
 def professor_home(request):
@@ -28,13 +28,13 @@ def display_course(request, professor_id):
 
 #professor can view students in a courses
 def display_students(request, professor_id):
-	cs = registered_students_in_a_course.objects.filter(professor_id=professor_id)
+	cs = Enrolled_courses_of_a_student.objects.filter(professor_id=professor_id)
 
 	return render(request,'display_students.html',{'cs':cs})
 
 #professor can update student grades in a course
 def update_student_grade (request, student_id, course_id, professor_id):
-  update_student_grade_instance = registered_students_in_a_course.objects.get(student_id=student_id, course_id=course_id, professor_id=professor_id)
+  update_student_grade_instance = Enrolled_courses_of_a_student.objects.get(student_id=student_id, course_id=course_id, professor_id=professor_id)
   template = loader.get_template('update_student_grade.html')
   context = {
     'update_student_grade_instance': update_student_grade_instance,

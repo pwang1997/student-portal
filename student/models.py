@@ -1,5 +1,4 @@
-import email
-from gzip import FNAME
+
 from django.db import models
 from user.models import Users
 

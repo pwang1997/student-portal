@@ -16,10 +16,10 @@ def student_home(request):
     #display the courses that the logged-in studnet enrolled in
     student = Student.objects.get(id=request.session['user']['id'])
     enrolled_courses_object = Enrolled_courses_of_a_student.objects.filter(student_id=student.id)
-    enrolled_courses = {}
+    enrolled_courses = []
     for item in enrolled_courses_object:
         course = Course.objects.get(id=item.course_id)
-        enrolled_courses[course.id] = {'course':course, 'grade':item.grade}
+        enrolled_courses.append((course, item.grade))
     context["enrolled_courses"] = enrolled_courses
 
     return render(request, 'student_home.html', context)

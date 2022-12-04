@@ -85,18 +85,18 @@ header{
                 <th>Action</th>
                 </tr>
             </thead>
-              {% for data in enrolled_courses.values() %}
+              {% for data in enrolled_courses %}
               <tr>
-                <td>{{data['course'].name}}</a></td>
-                <td>{{data['course'].department}}</td>
-                <td>{{data['course'].code}}</td>
-                <td>{{data['course'].section}}</td>
-                <td>{{data['course'].units}}</td>
-                <td>{{data['course'].timetable}}</td>
-                <td>{{data['course'].location}}</td>
-                <td>{{data['course'].instructor}}</td>
-                <td>{{data['course'].course_dates}}</td>
-                <td>{{data['grade']}}</td>
+                <td>{{data.0.name}}</a></td>
+                <td>{{data.0.department}}</td>
+                <td>{{data.0.code}}</td>
+                <td>{{data.0.section}}</td>
+                <td>{{data.0.units}}</td>
+                <td>{{data.0.timetable}}</td>
+                <td>{{data.0.location}}</td>
+                <td>{{data.0.instructor}}</td>
+                <td>{{data.0.course_dates}}</td>
+                <td>{{data.1}}</td>
                 <td><button class="w3-btn w3-blue">Drop</button></td>
               </tr>
               {% endfor %}
