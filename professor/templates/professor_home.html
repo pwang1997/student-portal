@@ -72,78 +72,34 @@ header{
         <table class="w3-table-all w3-hoverable">
             <thead>
                 <tr class="w3-brown">
-                <th>ID</th>
                 <th>Course Name</th>
-                <th>Course Code</th>
+                <th>Subject</th>
+                <th>Code</th>
                 <th>Section</th>
                 <th>Units</th>
-                <th>Days&Time</th>
-                <th>Room</th>
-                <th>Meeting Dates</th>
+                <th>Timetable</th>
+                <th>Location</th>
+                <th>Course Dates</th>
                 <th>Status</th>
                 <th>Enrolled Students</th>
                 </tr>
             </thead>
-            <tr>
-              <td>1</td>
-              <td>Full Stack Cloud Development</td>
-              <td>GNG 5300</td>
-              <td>C00</td>
-              <td>3</td>
-              <td>Tu 5:30PM - 8:20PM</td>
-              <td>150 Louis Pasteur (STM) 034</td>
-              <td>09/07/2022 - 12/07/2022</td>
-              <td>Open</td>
-              <td><button class="w3-btn w3-blue">View Student List</button></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Example Course One</td>
-              <td>GNG 5400</td>
-              <td>A00</td>
-              <td>3</td>
-              <td>Mo 9:00AM - 10:30AM Th 2:00PM - 3:30PM</td>
-              <td>136 Jean-Jacques L. (VNR) 3075</td>
-              <td>09/07/2022 - 12/07/2022</td>
-              <td>Open</td>
-              <td><button class="w3-btn w3-blue">View Student List</button> </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Example Course Two</td>
-              <td>GNG 5500</td>
-              <td>B00</td>
-              <td>3</td>
-              <td>We 11:30AM -2:30PM</td>
-              <td>200 Lees (LEE) A131</td>
-              <td>09/07/2022 - 12/07/2022</td>
-              <td>Closed</td>
-              <td><button class="w3-btn w3-blue">View Student List</button> </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Example Course Three</td>
-                <td>GNG 5600</td>
-                <td>F00</td>
-                <td>3</td>
-                <td>Fr 2:30PM - 5:30PM</td>
-                <td>800 King Edward (STE) C0136</td>
-                <td>09/07/2022 - 12/07/2022</td>
-                <td>Waiting</td>
-                <td><button class="w3-btn w3-blue">View Student List</button> </td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Example Course Four</td>
-                <td>GNG 5700</td>
-                <td>E00</td>
-                <td>3</td>
-                <td>Fr 2:30PM - 5:30PM</td>
-                <td>800 King Edward (STE) C0136</td>
-                <td>09/07/2022 - 12/07/2022</td>
-                <td>Waiting</td>
-                <td><button class="w3-btn w3-blue">View Student List</button> </td>
-            </tr>
+            
+            {% for data in teaching_courses %}
+              <tr>
+                <td>{{data.name}}</a></td>
+                <td>{{data.department}}</td>
+                <td>{{data.code}}</td>
+                <td>{{data.section}}</td>
+                <td>{{data.units}}</td>
+                <td>{{data.timetable}}</td>
+                <td>{{data.location}}</td>
+                <td>{{data.course_dates}}</td>
+                <td>{{data.status}}</td>
+                <td><button class="w3-btn w3-blue">View Student List</button></td>
+              </tr>
+              {% endfor %}
+            
         </table>
     </div>
   </div>
