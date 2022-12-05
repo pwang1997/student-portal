@@ -27,8 +27,19 @@ def handle_admin_login(request):
     if is_user_exists.__len__() == 0:
         user = SchoolAdmin(email=username, first_name="admin", last_name="admin", password=password, token="thisisatest")
         user.save()
+    if success:
+        request.session['user'] = {"role" : "user"}
+        return redirect('/school-admin/')
+    else:
+        return HttpResponseBadRequest("wrong admin", status=400)
     
-    return redirect('/school-admin/') if success else HttpResponseBadRequest("wrong admin", status=400)
+def logout(request):
+    role = request.session["user"]["role"]
+    del request.session["user"]
+    if role == "student" or role == "professor":
+        return redirect('/login')
+    else:
+        return redirect('/school-admin/login')
 
 ########################################CREATE##############################################
 

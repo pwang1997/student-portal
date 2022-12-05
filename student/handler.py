@@ -37,3 +37,11 @@ def handle_drop_course(request, id):
     enrolled_courses_of_a_student.delete()
 
     return redirect('/student')
+
+def logout(request):
+    role = request.session["user"]["role"]
+    del request.session["user"]
+    if role == "student" or role == "professor":
+        return redirect('/login')
+    else:
+        return redirect('/school-admin/login')

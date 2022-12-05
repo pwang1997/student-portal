@@ -10,12 +10,14 @@ from professor.models import Professor
 
 # Create your views here.
 def index(request):
+    if 'user' not in request.session :
+      return redirect('/school-admin/login')
     template = loader.get_template('index.html')
     return HttpResponse(template.render())
 
 # admin login page
 def admin_login(request):
-    return render(request, 'login.html')
+    return render(request, 'admin-login.html')
 
 # admin/student portal
 def modify_student(request):

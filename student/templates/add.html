@@ -28,19 +28,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-2021-desert-mist" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="http://127.0.0.1:8000/student/" class="w3-bar-item w3-button w3-padding-large w3-hover-brown">Home</a>
     <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-brown">Add Classes</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
+    <a href={% url 'logout' %} class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
       Log Out  <i class="fa-solid fa-right-from-bracket"></i>
     </a>
   </div>
 
   <!-- Menubar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="http://127.0.0.1:8000/student/class_schdule/" class="w3-bar-item w3-button w3-padding-large">My Class Schedule</a>
-    <a href="http://127.0.0.1:8000/student/search/" class="w3-bar-item w3-button w3-padding-large">Search Classes</a>
     <a href="http://127.0.0.1:8000/student/add/" class="w3-bar-item w3-button w3-padding-large">Add Classes</a>
-    <a href="http://127.0.0.1:8000/student/drop/" class="w3-bar-item w3-button w3-padding-large">Drop Classes</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large"><i class="fa-solid fa-right-from-bracket"></i>Log Out</a>
-  </div>
+    <a href={% url 'logout' %} class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
+      Log Out  <i class="fa-solid fa-right-from-bracket"></i>
+    </a>
 </div>
 
 <!-- First Grid -->

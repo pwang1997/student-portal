@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.admin_login, name='admin-login'),
     path('handle_admin_login', handler.handle_admin_login, name='handle_admin_login'),
+    path('logout/', handler.logout, name='logout'),
     
     #######################################STUDENT#########################################################
     # student views
