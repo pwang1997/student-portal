@@ -10,10 +10,11 @@ from professor.models import Professor
 
 # Create your views here.
 def index(request):
+    context ={}
+    context["courses"] = Course.objects.all()
     if 'user' not in request.session :
       return redirect('/school-admin/login')
-    template = loader.get_template('index.html')
-    return HttpResponse(template.render())
+    return render(request, 'index.html', context)
 
 # admin login page
 def admin_login(request):
