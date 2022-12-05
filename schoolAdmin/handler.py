@@ -117,7 +117,7 @@ def handle_create_professor(request):
                           email=email, password="12345",  
                           position=position, department=department)
     professor.save()
-    return redirect('/school-admin/modify-professor')
+    return redirect('/school-admin/modify-professor') 
 
 ########################################DELETE##############################################
 

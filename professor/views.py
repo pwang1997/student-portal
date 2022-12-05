@@ -36,12 +36,17 @@ def student_list(request,id):
 
     return render(request, 'student_list.html', context)
 
-
 #professor can update student grades in a course
-def update_student_grade (request, student_id, course_id, professor_id):
-  update_student_grade_instance = Enrolled_courses_of_a_student.objects.get(student_id=student_id, course_id=course_id, professor_id=professor_id)
-  template = loader.get_template('update_student_grade.html')
-  context = {
-    'update_student_grade_instance': update_student_grade_instance,
-  }
-  return HttpResponse(template.render(context, request))
+def edit_grade (request,student_id,course_id):
+  professor = Professor.objects.get(id=request.session['user']['id'])
+  student = Student.objects.get(id=student_id)
+  course = Course.objects.get(id=course_id)
+  enrolled_courses_of_a_student = Enrolled_courses_of_a_student.objects.get(student_id=student.id,
+                                                                            professor_id=professor.id,
+                                                                            course_id=course.id)
+  context = {}
+  context["enrolled_courses_of_a_student"] = enrolled_courses_of_a_student
+
+  return render(request, 'edit_grade.html', context)
+
+
