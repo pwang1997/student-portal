@@ -38,17 +38,13 @@ def handle_drop_course(request, id):
 
     return redirect('/student')
 
-def handle_edit_grade(request,student_id,course_id):
-    professor = Professor.objects.get(id=request.session['user']['id'])
-    student = Student.objects.get(id=student_id)
-    course = Course.objects.get(id=course_id)
-    enrolled_courses_of_a_student = Enrolled_courses_of_a_student.objects.get(student_id=student.id,
-                                                                            professor_id=professor.id,
-                                                                            course_id=course.id)
+def handle_edit_grade(request,enroll_id):
+    
+    enrolled_courses_of_a_student = Enrolled_courses_of_a_student.objects.get(id=enroll_id)
     grade = request.POST.get('grade')
     enrolled_courses_of_a_student.grade = grade
     enrolled_courses_of_a_student.save()
-    return redirect('/student_list/<int:id>') 
+    return redirect('/professor') 
 
 def logout(request):
     role = request.session["user"]["role"]
