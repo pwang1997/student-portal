@@ -87,7 +87,7 @@ header{
             
             {% for data in teaching_courses %}
               <tr>
-                <td>{{data.name}}</a></td>
+                <td>{{data.name}}</td>
                 <td>{{data.department}}</td>
                 <td>{{data.code}}</td>
                 <td>{{data.section}}</td>
@@ -96,7 +96,7 @@ header{
                 <td>{{data.location}}</td>
                 <td>{{data.course_dates}}</td>
                 <td>{{data.status}}</td>
-                <td><button class="w3-btn w3-blue">View Student List</button></td>
+                <td><a href={% url 'student_list' id=data.id %}><button class="w3-btn w3-blue">View Student List</button></a></td>
               </tr>
               {% endfor %}
             
