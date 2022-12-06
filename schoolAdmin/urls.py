@@ -42,6 +42,6 @@ urlpatterns = [
     # course request handlers
     path('handle_create_course', handler.handle_create_course, name='handle_create_course'),
     path('handle_delete_course/<int:id>', handler.handle_delete_course, name='handle_delete_course'),
-    path('handle_update_course/<int:id>', handler.handle_update_course, name='handle_update_course'),
+    path('handle_update_course/<int:id>/<str:instructor>', handler.handle_update_course, name='handle_update_course'),
 
 ]

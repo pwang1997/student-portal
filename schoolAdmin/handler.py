@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest,JsonResponse
 from django.contrib import messages
 from django.template import loader
 
@@ -170,7 +170,7 @@ def handle_update_professor(request, id):
 
     return redirect('/school-admin/modify-professor')
 
-def handle_update_course(request, id):
+def handle_update_course(request, id,instructor):
     if request.method != 'POST':
         return HttpResponseBadRequest(f'This view can not handle method {format(request.method)}', status=405)
     
@@ -184,11 +184,12 @@ def handle_update_course(request, id):
     course.course_dates = request.POST.get("course_dates")
     course.timetable = request.POST.get("timetable")
     course.location = request.POST.get("location")
-    course.instructor = request.POST.get("instructor")
+    course.instructor = instructor
     course.capacity = request.POST.get("capacity")
     course.status = request.POST.get("status")
     course.description = request.POST.get("description")
 
+    #return JsonResponse(request.POST)
     course.save()
 
     return redirect('/school-admin/modify-course')

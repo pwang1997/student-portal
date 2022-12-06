@@ -71,14 +71,14 @@ def course_update(request, id):
   departments = ["CSI", "DTI", "GNG", "ISI"]
   units = ["3", "6"]
   statuses = ["Active", "Inactive"]
-  professors = Professor.objects.all()
+  #professors = Professor.objects.all()
 
   context = {
     'course': course,
     'departments' : departments,
     'units' : units,
     'statuses' : statuses,
-    'professors' : professors
+   # 'professors' : professors
   }
   return render(request, 'course-update.html', context)
   

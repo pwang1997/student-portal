@@ -165,7 +165,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
               <td>{{course.course_dates}}</td>
               <td>{{course.status}}</td>
               <td>{{course.capacity}}</td>
-              <th><a href={% url 'course_update' id=course.id %}><button type="button">UPDATE</button></a></th>
+              <td><a href={% url 'course_update' id=course.id %}><button type="button">UPDATE</button></a></td>
               <td><a href={% url 'handle_delete_course' id=course.id %}><button type="button">DELETE</button></a></td>
 			    </tr>
 			  {% endfor %}
